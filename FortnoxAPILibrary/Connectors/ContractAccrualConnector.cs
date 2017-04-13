@@ -19,9 +19,9 @@ namespace FortnoxAPILibrary.Connectors
         /// </summary>
         /// <param name="contractNumber">The contract number of the contract accrual to get</param>
         /// <returns>The found contract accrual</returns>
-        public ContractAccrual Get(string contractNumber)
+        public ContractAccrual Get(string contractNumber, string accessToken, string clientSecret)
         {
-            return base.BaseGet(contractNumber);
+            return base.BaseGet(contractNumber,accessToken,clientSecret);
         }
 
         /// <summary>
@@ -48,18 +48,18 @@ namespace FortnoxAPILibrary.Connectors
         /// Deletes an contract accrual
         /// </summary>
         /// <param name="contractNumber">The contract number of the contract accrual to delete</param>
-        public void Delete(string contractNumber)
+        public void Delete(string contractNumber, string accessToken, string clientSecret)
         {
-            base.BaseDelete(contractNumber);
+            base.BaseDelete(contractNumber, accessToken, clientSecret);
         }
 
         /// <summary>
         /// Gets a list of contract accruals
         /// </summary>
         /// <returns>A list of contract accruals</returns>
-        public ContractAccruals Find()
+        public ContractAccruals Find(string accessToken, string clientSecret)
         {
-            return base.BaseFind();
+            return base.BaseFind(accessToken,clientSecret);
         }
     }
 }

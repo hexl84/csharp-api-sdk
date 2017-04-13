@@ -34,9 +34,9 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="supplierInvoiceNumber">The supplier invoice number of the supplier invoice accrual to get</param>
 		/// <returns>The found supplier invoice accrual</returns>
-		public SupplierInvoiceAccrual Get(string supplierInvoiceNumber)
+		public SupplierInvoiceAccrual Get(string supplierInvoiceNumber, string accessToken, string clientSecret)
 		{
-			return base.BaseGet(supplierInvoiceNumber);
+			return base.BaseGet(supplierInvoiceNumber, accessToken, clientSecret);
 		}
 
 		///<summary>
@@ -54,27 +54,27 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="supplierInvoiceAccrual">The supplier invoice accrual to create</param>
 		/// <returns>The created supplierinvoice accrual</returns>
-		public SupplierInvoiceAccrual Create(SupplierInvoiceAccrual supplierInvoiceAccrual)
+		public SupplierInvoiceAccrual Create(SupplierInvoiceAccrual supplierInvoiceAccrual, string accessToken, string clientSecret)
 		{
-			return base.BaseCreate(supplierInvoiceAccrual);
+			return base.BaseCreate(supplierInvoiceAccrual, accessToken, clientSecret);
 		}
 
 		/// <summary>
 		/// Deletes an supplier invoice accrual
 		/// </summary>
 		/// <param name="supplierInvoiceNumber">The invoice number of the supplier invoice accrual to delete</param>
-		public void Delete(string supplierInvoiceNumber)
+		public void Delete(string supplierInvoiceNumber, string accessToken, string clientSecret)
 		{
-			base.BaseDelete(supplierInvoiceNumber);
+			base.BaseDelete(supplierInvoiceNumber, accessToken, clientSecret);
 		}
 
 		/// <summary>
 		/// Gets a list of supplier invoice accruals
 		/// </summary>
 		/// <returns>A list of supplier invoice accruals</returns>
-		public SupplierInvoiceAccruals Find()
+		public SupplierInvoiceAccruals Find(string accessToken, string clientSecret)
 		{
-			return base.BaseFind();
+			return base.BaseFind(accessToken,clientSecret);
 		}
 	}
 }

@@ -19,8 +19,8 @@ namespace FortnoxAPILibrary.Connectors {
         /// </summary>
         /// <param name="labelId"></param>
         /// <returns></returns>
-        public Label Get(string labelId) {
-            return base.BaseGet(labelId);
+        public Label Get(string labelId, string accessToken, string clientSecret) {
+            return base.BaseGet(labelId,accessToken,clientSecret);
         }
 
         /// <summary>
@@ -46,16 +46,16 @@ namespace FortnoxAPILibrary.Connectors {
         /// </summary>
         /// <param name="labelid">The label id to delete</param>
         /// <returns>If the label was deleted. </returns>
-        public void Delete(string labelid) {
-            base.BaseDelete(labelid);
+        public void Delete(string labelid, string accessToken, string clientSecret) {
+            base.BaseDelete(labelid,accessToken,clientSecret);
         }
 
         /// <summary>
         /// Gets a list of labels
         /// </summary>
         /// <returns>A list of labels</returns>
-        public Labels Find() {
-            return base.BaseFind();
+        public Labels Find(string accessToken, string clientSecret) {
+            return base.BaseFind(accessToken, clientSecret);
         }
     }
 }

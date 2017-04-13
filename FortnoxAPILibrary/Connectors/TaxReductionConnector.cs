@@ -60,9 +60,9 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="id"></param>
 		/// <returns></returns>
-		public TaxReduction Get(string id)
+		public TaxReduction Get(string id, string accessToken, string clientSecret)
 		{
-			return base.BaseGet(id);
+			return base.BaseGet(id, accessToken, clientSecret);
 		}
 
 		/// <summary>
@@ -89,18 +89,18 @@ namespace FortnoxAPILibrary.Connectors
 		/// Deletes a tax reduction
 		/// </summary>
 		/// <param name="id">Id of the tax reduction to delete</param>
-		public void Delete(string id)
+		public void Delete(string id, string accessToken, string clientSecret)
 		{
-			base.BaseDelete(id.ToString());
+			base.BaseDelete(id, accessToken, clientSecret);
 		}
 
 		/// <summary>
 		/// Gets a list of tax reductions
 		/// </summary>
 		/// <returns>A list of tax reductions</returns>
-		public TaxReductions Find()
+		public TaxReductions Find(string accessToken, string clientSecret)
 		{
-			return base.BaseFind();
+			return base.BaseFind(accessToken, clientSecret);
 		}
 	}
 }

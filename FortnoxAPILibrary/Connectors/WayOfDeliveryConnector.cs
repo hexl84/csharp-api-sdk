@@ -22,9 +22,9 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="wayOfDeliveryCode">The way of deliverycode to find</param>
 		/// <returns>The resulting way of deliverycode</returns>
-		public WayOfDelivery Get(string wayOfDeliveryCode)
+		public WayOfDelivery Get(string wayOfDeliveryCode, string accessToken, string clientSecret)
 		{
-			return base.BaseGet(wayOfDeliveryCode);
+			return base.BaseGet(wayOfDeliveryCode, accessToken, clientSecret);
 		}
 
 		/// <summary>
@@ -52,18 +52,18 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="wayOfDeliveryCode">The way of delivery code to delete</param>
 		/// <returns>If the way of delivery was deleted or not</returns>
-		public void Delete(string wayOfDeliveryCode)
+		public void Delete(string wayOfDeliveryCode, string accessToken, string clientSecret)
 		{
-			base.BaseDelete(wayOfDeliveryCode);
+			base.BaseDelete(wayOfDeliveryCode, accessToken, clientSecret);
 		}
 
 		/// <summary>
 		/// Gets a list of way of deliveries
 		/// </summary>
 		/// <returns>A list of way of deliveries</returns>
-		public WayOfDeliveries Find()
+		public WayOfDeliveries Find(string accessToken, string clientSecret)
 		{
-			return base.BaseFind();
+			return base.BaseFind(accessToken, clientSecret);
 		}
 	}
 }

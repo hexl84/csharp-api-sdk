@@ -14,9 +14,9 @@ namespace FortnoxAPILibrary.Connectors
 		/// Gets a list of account charts 
 		/// </summary>
 		/// <returns>A list of account charts</returns>
-		public AccountCharts Find()
+		public AccountCharts Find(string accessToken, string clientSecret)
 		{
-			return base.BaseFind();
+			return base.BaseFind(accessToken, clientSecret);
 		}
 	}
 }

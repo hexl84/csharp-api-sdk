@@ -34,9 +34,9 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="invoiceNumber">The invoice number of the invoice accrual to get</param>
 		/// <returns>The found invoice accrual</returns>
-		public InvoiceAccrual Get(string invoiceNumber)
+		public InvoiceAccrual Get(string invoiceNumber, string accessToken, string clientSecret)
 		{
-			return base.BaseGet(invoiceNumber);
+			return base.BaseGet(invoiceNumber,accessToken,clientSecret);
 		}
 
 		/// <summary>
@@ -63,18 +63,18 @@ namespace FortnoxAPILibrary.Connectors
 		/// Deletes an invoice accrual
 		/// </summary>
 		/// <param name="invoiceNumber">The invoice number of the invoice accrual to delete</param>
-		public void Delete(string invoiceNumber)
+		public void Delete(string invoiceNumber, string accessToken, string clientSecret)
 		{
-			base.BaseDelete(invoiceNumber);
+			base.BaseDelete(invoiceNumber,accessToken,clientSecret);
 		}
 
 		/// <summary>
 		/// Gets a list of invoice accruals
 		/// </summary>
 		/// <returns>A list of invoice accruals</returns>
-		public InvoiceAccruals Find()
+		public InvoiceAccruals Find(string accessToken, string clientSecret)
 		{
-			return base.BaseFind();
+			return base.BaseFind(accessToken, clientSecret);
 		}
 	}
 }

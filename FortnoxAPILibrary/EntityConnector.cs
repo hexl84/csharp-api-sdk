@@ -90,7 +90,7 @@ namespace FortnoxAPILibrary
         /// <remarks/>
         protected Dictionary<string, string> Parameters = new Dictionary<string, string>();
 
-        internal E BaseCreate(E entity, Dictionary<string, string> parameters = null)
+        internal E BaseCreate(E entity, string accessToken, string clientSecret, Dictionary<string, string> parameters = null)
         {
             this.Parameters = parameters == null ? new Dictionary<string, string>() : parameters;
 
@@ -106,10 +106,10 @@ namespace FortnoxAPILibrary
             base.ResponseType = RequestResponseType.XML;
             base.RequestUriString = requestUriString;
 
-            return base.DoRequest<E>(entity);
+            return base.DoRequest<E>(accessToken, clientSecret, entity);
         }
 
-        internal E BaseUpdate(E entity, params string[] indices)
+        internal E BaseUpdate(E entity, string accessToken, string clientSecret, params string[] indices)
         {
             this.Parameters = new Dictionary<string, string>();
 
@@ -130,7 +130,7 @@ namespace FortnoxAPILibrary
             return base.DoRequest<E>(entity);
         }
 
-        internal void BaseDelete(string index)
+        internal void BaseDelete(string index, string accessToken, string clientSecret)
         {
             this.Parameters = new Dictionary<string, string>();
 
@@ -142,10 +142,10 @@ namespace FortnoxAPILibrary
             base.ResponseType = RequestResponseType.XML;
             base.RequestUriString = requestUriString;
 
-            base.DoRequest();
+            base.DoRequest(accessToken, clientSecret);
         }
 
-        internal E BaseGet(params string[] indices)
+        internal E BaseGet(string accessToken, string clientSecret, params string[] indices)
         {
             this.Parameters = new Dictionary<string, string>();
 
@@ -166,10 +166,10 @@ namespace FortnoxAPILibrary
             base.ResponseType = RequestResponseType.XML;
             base.RequestUriString = requestUriString;
 
-            return base.DoRequest<E>();
+            return base.DoRequest<E>(accessToken, clientSecret);
         }
 
-        internal C BaseFind(Dictionary<string, string> parameters = null)
+        internal C BaseFind(string accessToken, string clientSecret, Dictionary<string, string> parameters = null)
         {
             this.Parameters = parameters == null ? new Dictionary<string, string>() : parameters;
 
@@ -210,7 +210,7 @@ namespace FortnoxAPILibrary
             base.ResponseType = RequestResponseType.XML;
             base.RequestUriString = requestUriString;
 
-            C result = base.DoRequest<C>();
+            C result = base.DoRequest<C>(accessToken, clientSecret);
 
             return result;
         }
@@ -283,7 +283,7 @@ namespace FortnoxAPILibrary
             }
         }
 
-        internal E DoAction(string documentNumber, string action)
+        internal E DoAction(string documentNumber, string action, string accessToken, string clientSecret)
         {
 
             string requestUriString = this.GetUrl(documentNumber.ToString());
@@ -315,19 +315,19 @@ namespace FortnoxAPILibrary
             }
             base.RequestUriString = requestUriString;
 
-            return base.DoRequest<E>();
+            return base.DoRequest<E>(accessToken, clientSecret);
         }
 
 
-        internal SieSummary BaseUploadFile(string localPath)
+        internal SieSummary BaseUploadFile(string localPath, string accessToken, string clientSecret)
         {
             string requestUriString = this.GetUrl();
             base.RequestUriString = AddParameters(requestUriString);
 
-            return base.UploadFile<SieSummary>(localPath);
+            return base.UploadFile<SieSummary>(localPath,accessToken,clientSecret);
         }
 
-        internal File BaseUploadFile(string localPath, string folderId)
+        internal File BaseUploadFile(string localPath, string folderId, string accessToken, string clientSecret)
         {
             base.RequestUriString = this.GetUrl();
 
@@ -336,7 +336,7 @@ namespace FortnoxAPILibrary
                 base.RequestUriString += "?folderid=" + Uri.EscapeDataString(folderId);
             }
 
-            return base.UploadFile<File>(localPath);
+            return base.UploadFile<File>(localPath,accessToken,clientSecret);
         }
 
         internal string AddParameters(string requestUriString)

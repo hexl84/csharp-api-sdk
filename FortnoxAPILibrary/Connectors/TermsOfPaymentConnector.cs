@@ -22,9 +22,9 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="termsOfPaymentCode"></param>
 		/// <returns></returns>
-		public TermsOfPayment Get(string termsOfPaymentCode)
+		public TermsOfPayment Get(string termsOfPaymentCode, string accessToken, string clientSecret)
 		{
-			return base.BaseGet(termsOfPaymentCode);
+			return base.BaseGet(termsOfPaymentCode, accessToken, clientSecret);
 		}
 
 		/// <summary>
@@ -52,18 +52,18 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="termsOfPaymentCode">The terms of payemnt code to delete</param>
 		/// <returns>If the terms of payment was deleted. </returns>
-		public void Delete(string termsOfPaymentCode)
+		public void Delete(string termsOfPaymentCode, string accessToken, string clientSecret)
 		{
-			base.BaseDelete(termsOfPaymentCode);
+			base.BaseDelete(termsOfPaymentCode, accessToken, clientSecret);
 		}
 
 		/// <summary>
 		/// Gets a list of terms of payments
 		/// </summary>
 		/// <returns>A list of terms of payments</returns>
-		public TermsOfPayments Find()
+		public TermsOfPayments Find(string accessToken, string clientSecret)
         {
-			return base.BaseFind();
+			return base.BaseFind(accessToken, clientSecret);
 		}
 	}
 }

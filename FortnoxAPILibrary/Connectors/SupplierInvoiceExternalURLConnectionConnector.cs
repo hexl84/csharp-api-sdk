@@ -15,15 +15,15 @@ namespace FortnoxAPILibrary.Connectors
         }
 
         /// <remarks/>
-        public SupplierInvoiceExternalURLConnection Get(string id)
+        public SupplierInvoiceExternalURLConnection Get(string id, string accessToken, string clientSecret)
         {
-            return base.BaseGet(id);
+            return base.BaseGet(id, accessToken, clientSecret);
         }
 
         /// <remarks/>
-        public SupplierInvoiceExternalURLConnection Create(SupplierInvoiceExternalURLConnection supplierInvoiceExternalUrlConnection)
+        public SupplierInvoiceExternalURLConnection Create(SupplierInvoiceExternalURLConnection supplierInvoiceExternalUrlConnection, string accessToken, string clientSecret)
         {
-            return base.BaseCreate(supplierInvoiceExternalUrlConnection);
+            return base.BaseCreate(supplierInvoiceExternalUrlConnection, accessToken, clientSecret);
         }
 
         /// <remarks/>
@@ -33,9 +33,9 @@ namespace FortnoxAPILibrary.Connectors
         }
 
         /// <remarks/>
-        public void Delete(string id)
+        public void Delete(string id, string accessToken, string clientSecret)
         {
-            base.BaseDelete(id);
+            base.BaseDelete(id, accessToken, clientSecret);
         }
     }
 }

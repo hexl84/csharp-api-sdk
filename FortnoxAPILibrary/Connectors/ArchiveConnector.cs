@@ -114,11 +114,11 @@ namespace FortnoxAPILibrary.Connectors
 		///<param name="localPath">The local path to the file to upload</param>
 		///<param name="folderId">The folderId in Fortnox archive to save the file</param>
 		///<returns>Information of the uploaded file</returns>
-		public File UploadFile(string localPath, string folderId = "")
+		public File UploadFile(string localPath, string accessToken, string clientSecret, string folderId = "")
         {
             base.Resource = "archive";
 
-			return base.BaseUploadFile(localPath, folderId);
+			return base.BaseUploadFile(localPath, folderId, accessToken, clientSecret);
 		}
 
 		/// <summary>

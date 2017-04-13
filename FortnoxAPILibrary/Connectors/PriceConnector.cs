@@ -71,7 +71,7 @@ namespace FortnoxAPILibrary.Connectors
 		/// <param name="articleNumber">The article number of the price to delete.</param>
 		/// <param name="fromQuantity">The from quantity of the price to delete. Optional. If omitted, all prices with the given price list and article number will be deleted.</param>
 		/// <returns>If the price was deleted or not</returns>
-		public void Delete(string priceList, string articleNumber, string fromQuantity = "0")
+		public void Delete(string priceList, string articleNumber, string accessToken, string clientSecret, string fromQuantity = "0")
 		{
 			base.Resource = "prices";
 			string id = priceList + "/" + articleNumber;
@@ -81,14 +81,14 @@ namespace FortnoxAPILibrary.Connectors
 				id += "/" + fromQuantity.ToString();
 			}
 
-			base.BaseDelete(id);
+			base.BaseDelete(id, accessToken, clientSecret);
 		}
 
 		/// <summary>
 		/// Gets a list of prices. Use the properties of PriceConnector to limit the result.
 		/// </summary>
 		/// <returns>A list of prices</returns>
-		public Prices Find()
+		public Prices Find(string accessToken, string clientSecret)
 		{
 			base.Resource = "prices/sublist/";
 
@@ -97,7 +97,7 @@ namespace FortnoxAPILibrary.Connectors
 				base.Resource += this.PriceList;
 			}
 
-			return base.BaseFind();
+			return base.BaseFind(accessToken, clientSecret);
 		}
 	}
 }

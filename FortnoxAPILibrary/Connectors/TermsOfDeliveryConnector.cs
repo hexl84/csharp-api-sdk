@@ -22,9 +22,9 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="termsOfDeliveryCode">The terms of deliverycode to find</param>
 		/// <returns>The resulting terms of delivery</returns>
-		public TermsOfDelivery Get(string termsOfDeliveryCode)
+		public TermsOfDelivery Get(string termsOfDeliveryCode, string accessToken, string clientSecret)
 		{
-			return base.BaseGet(termsOfDeliveryCode);
+			return base.BaseGet(termsOfDeliveryCode, accessToken, clientSecret);
 		}
 
 		/// <summary>
@@ -53,18 +53,18 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="termsOfDeliveryCode">The terms of delivery code to delete</param>
 		/// <returns>If the terms of delivery was deleted or not</returns>
-		public void Delete(string termsOfDeliveryCode)
+		public void Delete(string termsOfDeliveryCode, string accessToken, string clientSecret)
 		{
-			base.BaseDelete(termsOfDeliveryCode);
+			base.BaseDelete(termsOfDeliveryCode,accessToken,clientSecret);
 		}
 
 		/// <summary>
 		/// Gets a list of terms of deliveries
 		/// </summary>
 		/// <returns>A list of terms of deliveries</returns>
-		public TermsOfDeliveries Find()
+		public TermsOfDeliveries Find(string accessToken, string clientSecret)
 		{
-			return base.BaseFind();
+			return base.BaseFind(accessToken,clientSecret);
 		}
 	}
 }

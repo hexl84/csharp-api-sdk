@@ -18,9 +18,9 @@ namespace FortnoxAPILibrary
         /// Gets the company settings
         /// </summary>
         /// <returns>The company settings</returns>
-        public CompanySettings Get()
+        public CompanySettings Get(string accessToken, string clientSecret)
         {
-            return base.BaseFind();
+            return base.BaseFind(accessToken,clientSecret);
         }
     }
 }

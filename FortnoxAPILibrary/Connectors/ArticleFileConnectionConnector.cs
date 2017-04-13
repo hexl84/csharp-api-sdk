@@ -25,9 +25,9 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="fileId">The id of the file to get</param>
 		/// <returns>The found article file connection</returns>
-		public ArticleFileConnection Get(string fileId)
+		public ArticleFileConnection Get(string fileId, string accessToken, string clientSecret)
 		{
-			return base.BaseGet(fileId);
+			return base.BaseGet(fileId,accessToken,clientSecret);
 		}
 
 		/// <summary>
@@ -35,18 +35,18 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="articleFileConnection">The article file connection to create</param>
 		/// <returns>The created article file connection</returns>
-		public ArticleFileConnection Create(ArticleFileConnection articleFileConnection)
+		public ArticleFileConnection Create(ArticleFileConnection articleFileConnection, string accessToken, string clientSecret)
 		{
-			return base.BaseCreate(articleFileConnection);
+			return base.BaseCreate(articleFileConnection,accessToken,clientSecret);
 		}
 
 		/// <summary>
 		/// Deletes a connected file from a article
 		/// </summary>
 		/// <param name="fileId">The id of the file to delete</param>
-		public void Delete(string fileId)
+		public void Delete(string fileId, string accessToken, string clientSecret)
 		{
-			base.BaseDelete(fileId);
+			base.BaseDelete(fileId, accessToken, clientSecret);
 		}
 
 
@@ -54,9 +54,9 @@ namespace FortnoxAPILibrary.Connectors
 		/// Gets a list of article file Connections
 		/// </summary>
 		/// <returns></returns>
-		public ArticleFileConnections Find()
+		public ArticleFileConnections Find(string accessToken, string clientSecret)
 		{
-			return base.BaseFind();
+			return base.BaseFind(accessToken,clientSecret);
 		}
 	}
 }

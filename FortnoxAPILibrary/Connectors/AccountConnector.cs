@@ -56,9 +56,9 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="accountNumber">Tha account number to find</param>
 		/// <returns>The found account</returns>
-		public Account Get(string accountNumber)
+		public Account Get(string accountNumber,string accessToken, string clientSecret)
 		{
-			return base.BaseGet(accountNumber);
+			return base.BaseGet(accountNumber,accessToken,clientSecret);
 		}
 
 		/// <summary>
@@ -76,9 +76,9 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="account">The account to create</param>
 		/// <returns>The created account</returns>
-		public Account Create(Account account)
+		public Account Create(Account account, string accessToken, string clientSecret)
 		{
-			return base.BaseCreate(account);
+			return base.BaseCreate(account, accessToken, clientSecret);
 		}
 
 		/// <summary>
@@ -86,18 +86,18 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="accountNumber">The account number to delete</param>
 		/// <returns>If the account was deleted or not</returns>
-		public void Delete(string accountNumber)
+		public void Delete(string accountNumber, string accessToken, string clientSecret)
 		{
-			base.BaseDelete(accountNumber);
+			base.BaseDelete(accountNumber, accessToken, clientSecret);
 		}
 
 		/// <summary>
 		/// Gets at list of accounts
 		/// </summary>
 		/// <returns>A list of accounts</returns>
-		public Accounts Find()
+		public Accounts Find(string accessToken, string clientSecret)
 		{
-			return base.BaseFind();
+			return base.BaseFind(accessToken, clientSecret);
 		}
 	}
 }

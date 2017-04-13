@@ -59,9 +59,9 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="supplierNumber">The suppliernumber to find</param>
 		/// <returns>The resulting supplier</returns>
-		public Supplier Get(string supplierNumber)
+		public Supplier Get(string supplierNumber, string accessToken, string clientSecret)
 		{
-			return BaseGet(supplierNumber);
+			return BaseGet(supplierNumber, accessToken, clientSecret);
 		}
 
 		/// <summary>
@@ -89,18 +89,18 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="supplierNumber">The suppliernumber to delete</param>
 		/// <returns></returns>
-		public void Delete(string supplierNumber)
+		public void Delete(string supplierNumber, string accessToken, string clientSecret)
 		{
-			base.BaseDelete(supplierNumber);
+			base.BaseDelete(supplierNumber,accessToken, clientSecret);
 		}
 
 		/// <summary>
 		/// Gets a list of suppliers
 		/// </summary>
 		/// <returns>A list of suppliers</returns>
-		public Suppliers Find()
+		public Suppliers Find(string accessToken, string clientSecret)
 		{
-			return base.BaseFind();
+			return base.BaseFind(accessToken,clientSecret);
 		}
 	}
 }

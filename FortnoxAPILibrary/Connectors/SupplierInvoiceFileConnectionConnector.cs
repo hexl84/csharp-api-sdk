@@ -22,9 +22,9 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="fileId">The id of the file to find.</param>
 		/// <returns>The found supplier invoice file connection</returns>
-		public SupplierInvoiceFileConnection Get(string fileId)
+		public SupplierInvoiceFileConnection Get(string fileId, string accessToken, string clientSecret)
 		{
-			return base.BaseGet(fileId);
+			return base.BaseGet(fileId, accessToken, clientSecret);
 		}
 
 		/// <summary>
@@ -41,18 +41,18 @@ namespace FortnoxAPILibrary.Connectors
 		/// Deletes a connected file from a supplier invoice
 		/// </summary>
 		/// <param name="fileId">The id of the file to delete</param>
-		public void Delete(string fileId)
+		public void Delete(string fileId, string accessToken, string clientSecret)
 		{
-			base.BaseDelete(fileId);
+			base.BaseDelete(fileId, accessToken, clientSecret);
 		}
 
 		/// <summary>
 		/// Gets a list of supplier invoice file Connections
 		/// </summary>
 		/// <returns></returns>
-		public SupplierInvoiceFileConnections Find()
+		public SupplierInvoiceFileConnections Find(string accessToken, string clientSecret)
 		{
-			return base.BaseFind();
+			return base.BaseFind(accessToken, clientSecret);
 		}
 	}
 }

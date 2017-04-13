@@ -19,9 +19,9 @@ namespace FortnoxAPILibrary.Connectors
         /// </summary>
         /// <param name="id">The id to find</param>
         /// <returns>The found connection</returns>
-        public SupplierInvoiceURLConnection Get(string id)
+        public SupplierInvoiceURLConnection Get(string id, string accessToken, string clientSecret)
         {
-            return base.BaseGet(id);
+            return base.BaseGet(id,accessToken, clientSecret);
         }
 
         /// <summary>
@@ -29,9 +29,9 @@ namespace FortnoxAPILibrary.Connectors
         /// </summary>
         /// <param name="supplierInvoiceUrlConnection">The supplier invoice url connection to create</param>
         /// <returns>The created supplier invoice url connection</returns>
-        public SupplierInvoiceURLConnection Create(SupplierInvoiceURLConnection supplierInvoiceUrlConnection)
+        public SupplierInvoiceURLConnection Create(SupplierInvoiceURLConnection supplierInvoiceUrlConnection, string accessToken, string clientSecret)
         {
-            return base.BaseCreate(supplierInvoiceUrlConnection);
+            return base.BaseCreate(supplierInvoiceUrlConnection, accessToken, clientSecret);
         }
 
         /// <summary>
@@ -39,9 +39,9 @@ namespace FortnoxAPILibrary.Connectors
         /// </summary>
         /// <param name="id">The id of the supplier invoice url connection to delete</param>
         /// <returns>If the supplier invoice url connection was deleted or not</returns>
-        public void Delete(string id)
+        public void Delete(string id, string accessToken, string clientSecret)
         {
-            base.BaseDelete(id);
+            base.BaseDelete(id,accessToken,clientSecret);
         }
     }
 }

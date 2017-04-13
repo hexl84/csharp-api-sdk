@@ -15,9 +15,9 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="unitCode">The unit code to find</param>
 		/// <returns>The found unit</returns>
-		public Unit Get(string unitCode)
+		public Unit Get(string unitCode, string accessToken, string clientSecret)
 		{
-			return base.BaseGet(unitCode);
+			return base.BaseGet(unitCode,accessToken, clientSecret);
 		}
 
 		/// <summary>
@@ -45,18 +45,18 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="unitCode">The unit code to delete</param>
 		/// <returns>If the unit was deleted or not.</returns>
-		public void Delete(string unitCode)
+		public void Delete(string unitCode, string accessToken, string clientSecret)
 		{
-			base.BaseDelete(unitCode);
+			base.BaseDelete(unitCode,accessToken,clientSecret);
 		}
 
 		/// <summary>
 		/// Gets a list of units
 		/// </summary>
 		/// <returns>A list of units</returns>
-		public Units Find()
+		public Units Find(string accessToken, string clientSecret)
 		{
-			return base.BaseFind();
+			return base.BaseFind(accessToken, clientSecret);
 		}
 	}
 }

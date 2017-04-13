@@ -116,9 +116,9 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="customerNumber">The customernumber to find</param>
 		/// <returns>The found customer</returns>
-		public Customer Get(string customerNumber)
+		public Customer Get(string customerNumber, string accessToken, string clientSecret)
 		{
-			return base.BaseGet(customerNumber);
+			return base.BaseGet(customerNumber,accessToken,clientSecret);
 		}
 
 		/// <summary>
@@ -145,18 +145,18 @@ namespace FortnoxAPILibrary.Connectors
 		/// Deletes a customer
 		/// </summary>
 		/// <param name="customerNumber">The customernumber to delete</param>
-		public void Delete(string customerNumber)
+		public void Delete(string customerNumber, string accessToken, string clientSecret)
 		{
-			base.BaseDelete(customerNumber);
+			base.BaseDelete(customerNumber,accessToken,clientSecret);
 		}
 
 		/// <summary>
 		/// Gets a list of customers
 		/// </summary>
 		/// <returns>A list of customers</returns>
-		public Customers Find()
+		public Customers Find(string accessToken, string clientSecret)
 		{
-			return base.BaseFind();
+			return base.BaseFind(accessToken, clientSecret);
 		}
 	}
 }

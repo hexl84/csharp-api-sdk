@@ -43,9 +43,9 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="projectNumber">The project number to find</param>
 		/// <returns>The found project</returns>
-		public Project Get(string projectNumber)
+		public Project Get(string projectNumber, string accessToken, string clientSecret)
 		{
-			return base.BaseGet(projectNumber);
+			return base.BaseGet(projectNumber,accessToken, clientSecret);
 		}
 
 		/// <summary>
@@ -73,18 +73,18 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="projectNumber">The project number of the project to delete</param>
 		/// <returns>If the project was deleted or not</returns>
-		public void Delete(string projectNumber)
+		public void Delete(string projectNumber, string accessToken, string clientSecret)
 		{
-			base.BaseDelete(projectNumber);
+			base.BaseDelete(projectNumber, accessToken, clientSecret);
 		}
 
 		/// <summary>
 		/// Gets at list of project, use the properties of ProjectConnector to limit the search
 		/// </summary>
 		/// <returns>A list of projects</returns>
-		public Projects Find()
+		public Projects Find(string accessToken, string clientSecret)
 		{
-			return base.BaseFind();
+			return base.BaseFind(accessToken, clientSecret);
 		}
 	}
 }

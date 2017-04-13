@@ -15,9 +15,9 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="currencyCode"></param>
 		/// <returns></returns>
-		public Currency Get(string currencyCode)
+		public Currency Get(string currencyCode, string accessToken, string clientSecret)
 		{
-			return base.BaseGet(currencyCode);
+			return base.BaseGet(currencyCode,accessToken,clientSecret);
 		}
 
 		/// <summary>
@@ -45,18 +45,18 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="currencyCode">The currency code to delete</param>
 		/// <returns>If the currency was deleted or not</returns>
-		public void Delete(string currencyCode)
+		public void Delete(string currencyCode, string accessToken, string clientSecret)
 		{
-			base.BaseDelete(currencyCode);
+			base.BaseDelete(currencyCode,accessToken,clientSecret);
 		}
 
 		/// <summary>
 		/// Gets at list of currencies
 		/// </summary>
 		/// <returns>A list of currencies</returns>
-		public Currencies Find()
+		public Currencies Find(string accessToken, string clientSecret)
 		{
-			return base.BaseFind();
+			return base.BaseFind(accessToken, clientSecret);
 		}
 	}
 }

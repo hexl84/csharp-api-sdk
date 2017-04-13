@@ -89,17 +89,17 @@ namespace FortnoxAPILibrary
         /// <para>DELETE</para>
         /// </param>
         /// <returns></returns>
-        internal HttpWebRequest SetupRequest(string requestUriString, string method)
+        internal HttpWebRequest SetupRequest(string requestUriString, string method, string accessToken, string clientSecret)
         {
             Error = null;
-            if (string.IsNullOrEmpty(ConnectionCredentials.AccessToken) || string.IsNullOrEmpty(ConnectionCredentials.ClientSecret))
+            if (string.IsNullOrEmpty(accessToken) || string.IsNullOrEmpty(clientSecret))
             {
                 throw new Exception("Access-Token and Client-Secret must be set");
             }
 
             HttpWebRequest wr = (HttpWebRequest)HttpWebRequest.Create(requestUriString);
-            wr.Headers.Add("access-token", ConnectionCredentials.AccessToken);
-            wr.Headers.Add("client-secret", ConnectionCredentials.ClientSecret);
+            wr.Headers.Add("access-token", accessToken);
+            wr.Headers.Add("client-secret", clientSecret);
             wr.ContentType = "application/xml";
             wr.Accept = "application/xml";
             wr.Method = method;
@@ -110,9 +110,9 @@ namespace FortnoxAPILibrary
         /// <summary>
         /// Perform the request to Fortnox API
         /// </summary>
-        internal void DoRequest()
+        internal void DoRequest(string accessToken, string clientSecret)
         {
-            HttpWebRequest wr = this.SetupRequest(this.RequestUriString, Method);
+            HttpWebRequest wr = this.SetupRequest(this.RequestUriString, Method, accessToken, clientSecret);
 
             try
             {
@@ -138,9 +138,9 @@ namespace FortnoxAPILibrary
         /// <typeparam name="T">The type of entity to create, read, update or delete.</typeparam>
         /// <param name="entity">The entity</param>
         /// <returns>An entity</returns>
-        internal T DoRequest<T>(T entity = default(T))
+        internal T DoRequest<T>(string accessToken, string clientSecret, T entity = default(T) )
         {
-            HttpWebRequest wr = this.SetupRequest(this.RequestUriString, Method);
+            HttpWebRequest wr = this.SetupRequest(this.RequestUriString, Method, accessToken, clientSecret);
             this.ResponseXml = "";
             try
             {
@@ -223,7 +223,7 @@ namespace FortnoxAPILibrary
             return entity;
         }
 
-        internal T UploadFile<T>(string localPath)
+        internal T UploadFile<T>(string localPath, string accessToken, string clientSecret)
         {
             this.ResponseXml = "";
 
@@ -238,7 +238,7 @@ namespace FortnoxAPILibrary
                 byte[] header = System.Text.Encoding.ASCII.GetBytes("\r\n--" + boundary + "\r\nContent-Disposition: form-data; name=\"file_path\"; filename=\"" + System.IO.Path.GetFileName(localPath) + "\"\r\nContent-Type: application/octet-stream\r\n\r\n");
                 byte[] trailer = System.Text.Encoding.ASCII.GetBytes("\r\n--" + boundary + "--\r\n");
 
-                HttpWebRequest request = this.SetupRequest(this.RequestUriString, "POST");
+                HttpWebRequest request = this.SetupRequest(this.RequestUriString, "POST", accessToken, clientSecret);
                 request.ContentType = "multipart/form-data; boundary=" + boundary;
 
                 using (Stream data_stream = request.GetRequestStream())
@@ -274,7 +274,7 @@ namespace FortnoxAPILibrary
             return result;
         }
 
-        internal void DownloadFile(string idOrPath, string localPath)
+        internal void DownloadFile(string idOrPath, string localPath, string accessToken, string clientSecret)
         {
             this.ResponseXml = "";
 
@@ -294,7 +294,7 @@ namespace FortnoxAPILibrary
 
                 this.LocalPath = localPath;
 
-                HttpWebRequest request = this.SetupRequest(url, "GET");
+                HttpWebRequest request = this.SetupRequest(url, "GET", accessToken, clientSecret);
 
                 using (HttpWebResponse response = (HttpWebResponse) request.GetResponse())
                 {
@@ -311,7 +311,7 @@ namespace FortnoxAPILibrary
             }
         }
 
-        internal File MoveFile(string fileId, string destination)
+        internal File MoveFile(string fileId, string destination, string accessToken, string clientSecret)
         {
             this.ResponseXml = "";
 
@@ -334,7 +334,7 @@ namespace FortnoxAPILibrary
                     url += "/?destination=" + Uri.EscapeDataString(destination);
                 }
 
-                HttpWebRequest request = this.SetupRequest(url, "PUT");
+                HttpWebRequest request = this.SetupRequest(url, "PUT", accessToken, clientSecret);
                 using (HttpWebResponse response = (HttpWebResponse) request.GetResponse())
                 {
                     httpStatusCode = response.StatusCode;

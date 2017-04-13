@@ -25,9 +25,9 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="number">The number of the invoice payment to find</param>
 		/// <returns>The found invoice payment</returns>
-		public InvoicePayment Get(string number)
+		public InvoicePayment Get(string number, string accessToken, string clientSecret)
 		{
-			return base.BaseGet(number);
+			return base.BaseGet(number,accessToken,clientSecret);
 		}
 
 		/// <summary>
@@ -54,27 +54,27 @@ namespace FortnoxAPILibrary.Connectors
 		/// Deletes a payment
 		/// </summary>
 		/// <param name="number">The number of the payment to delete</param>
-		public void Delete(string number)
+		public void Delete(string number, string accessToken, string clientSecret)
 		{
-			base.BaseDelete(number);
+			base.BaseDelete(number,accessToken,clientSecret);
 		}
 
 		/// <summary>
 		/// Gets a list of payments
 		/// </summary>
 		/// <returns>A list of payments</returns>
-		public InvoicePayments Find()
+		public InvoicePayments Find(string accessToken, string clientSecret)
 		{
-			return base.BaseFind();
+			return base.BaseFind(accessToken, clientSecret);
 		}
 
 		/// <summary>
 		/// Bookkeep an invoice payment
 		/// </summary>
 		/// <param name="invoicePaymentNumber">The number of the invoice payment to bookkeep.</param>
-		public void Bookkeep(string invoicePaymentNumber)
+		public void Bookkeep(string invoicePaymentNumber, string accessToken, string clientSecret)
 		{
-			base.DoAction(invoicePaymentNumber, "bookkeep");
+			base.DoAction(invoicePaymentNumber, "bookkeep", accessToken,clientSecret);
 		}
 	}
 }

@@ -16,9 +16,9 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="code">The code to find</param>
 		/// <returns>The found mode of payment</returns>
-		public ModeOfPayment Get(string code)
+		public ModeOfPayment Get(string code, string accessToken, string clientSecret)
 		{
-			return base.BaseGet(code);
+			return base.BaseGet(code,accessToken,clientSecret);
 		}
 
 		/// <summary>
@@ -45,18 +45,18 @@ namespace FortnoxAPILibrary.Connectors
 		/// Deletes a mode of payment
 		/// </summary>
 		/// <param name="code">The code of the mode of payment to delete</param>
-		public void Delete(string code)
+		public void Delete(string code, string accessToken, string clientSecret)
 		{
-			base.BaseDelete(code);
+			base.BaseDelete(code,accessToken,clientSecret);
 		}
 
 		/// <summary>
 		/// Gets a list of Modes of payment
 		/// </summary>
 		/// <returns></returns>
-		public ModesOfPayments Find()
+		public ModesOfPayments Find(string accessToken, string clientSecret)
 		{
-			return base.BaseFind();
+			return base.BaseFind(accessToken, clientSecret);
 		}
 	}
 }

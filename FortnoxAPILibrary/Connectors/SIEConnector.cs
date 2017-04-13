@@ -89,9 +89,9 @@ namespace FortnoxAPILibrary.Connectors
         /// </summary>
         /// <param name="sieType">The type of SIE to export</param>
         /// <returns>SIE</returns>
-        public byte[] ExportSIE(SIEType sieType)
+        public byte[] ExportSIE(SIEType sieType, string accessToken, string clientSecret)
         {
-            return Export(sieType);
+            return Export(sieType,accessToken, clientSecret);
         }
 
         /// <summary>
@@ -99,12 +99,12 @@ namespace FortnoxAPILibrary.Connectors
         /// </summary>
         /// <param name="sieType">The type of SIE to export</param>
         /// <param name="localPath">Path to sie-file</param>
-        public void ExportSIE(SIEType sieType, string localPath)
+        public void ExportSIE(SIEType sieType, string localPath, string accessToken, string clientSecret)
         {
-            Export(sieType, localPath);
+            Export(sieType, accessToken, clientSecret, localPath);
         }
 
-        private byte[] Export(SIEType sieType, string localPath = "")
+        private byte[] Export(SIEType sieType, string accessToken, string clientSecret, string localPath = "")
         {
             base.Resource = "sie/" + (int)sieType;
             string requestString = base.GetUrl();
@@ -117,7 +117,7 @@ namespace FortnoxAPILibrary.Connectors
 
             requestString = base.AddParameters(requestString);
 
-            HttpWebRequest wr = base.SetupRequest(requestString, "GET");
+            HttpWebRequest wr = base.SetupRequest(requestString, "GET", accessToken, clientSecret);
 
             List<byte> data = new List<byte>();
 
@@ -163,7 +163,7 @@ namespace FortnoxAPILibrary.Connectors
         /// <param name="pathToFile">The local path to the file to import</param>
         /// <param name="preview">Set to true to perform a preview of the import. Nothing will be imported.</param>
         /// <returns>A summary of what is beeing imported. </returns>
-        public SieSummary ImportSIE(string pathToFile, bool preview = false)
+        public SieSummary ImportSIE(string pathToFile, string accessToken, string clientSecret, bool preview = false)
         {
             if (string.IsNullOrEmpty(pathToFile))
             {
@@ -181,7 +181,7 @@ namespace FortnoxAPILibrary.Connectors
             List<string> parameters = new List<string>();
             AddImportOptions(parameters);
 
-            return base.BaseUploadFile(pathToFile);
+            return base.BaseUploadFile(pathToFile,accessToken,clientSecret);
         }
 
         private void AddExportOptions()

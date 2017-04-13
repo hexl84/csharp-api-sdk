@@ -15,9 +15,9 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="costCenterCode">The cost center code to find</param>
 		/// <returns>The resulting cost center</returns>
-		public CostCenter Get(string costCenterCode)
+		public CostCenter Get(string costCenterCode, string accessToken, string clientSecret)
 		{
-			return base.BaseGet(costCenterCode);
+			return base.BaseGet(costCenterCode,accessToken,clientSecret);
 		}
 
 
@@ -46,18 +46,18 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="costCenterCode">The cost center to delete</param>
 		/// <returns>If the cost center was deleted or not</returns>
-		public void Delete(string costCenterCode)
+		public void Delete(string costCenterCode, string accessToken, string clientSecret)
 		{
-			base.BaseDelete(costCenterCode);
+			base.BaseDelete(costCenterCode, accessToken, clientSecret);
 		}
 
 		/// <summary>
 		/// Gets a list of cost centers
 		/// </summary>
 		/// <returns>A list of cost centers</returns>
-		public CostCenters Find()
+		public CostCenters Find(string accessToken, string clientSecret)
 		{
-			return base.BaseFind();
+			return base.BaseFind(accessToken, clientSecret);
 		}
 	}
 }

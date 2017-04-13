@@ -33,9 +33,9 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="fileId">The id of the file to find.</param>
 		/// <returns>The found voucher file connection</returns>
-		public VoucherFileConnection Get(string fileId)
+		public VoucherFileConnection Get(string fileId, string accessToken, string clientSecret)
 		{
-			return base.BaseGet(fileId);
+			return base.BaseGet(fileId, accessToken, clientSecret);
 		}
 
 		/// <summary>
@@ -52,18 +52,18 @@ namespace FortnoxAPILibrary.Connectors
 		/// Deletes a connected file from a voucher
 		/// </summary>
 		/// <param name="fileId"></param>
-		public void Delete(string fileId)
+		public void Delete(string fileId, string accessToken, string clientSecret)
 		{
-			base.BaseDelete(fileId);
+			base.BaseDelete(fileId,accessToken,clientSecret);
 		}
 
 		/// <summary>
 		/// Gets a list of VoucherFile Connections
 		/// </summary>
 		/// <returns></returns>
-		public VoucherFileConnections Find()
+		public VoucherFileConnections Find(string accessToken, string clientSecret)
 		{
-			return base.BaseFind();
+			return base.BaseFind(accessToken, clientSecret);
 		}
 	}
 }

@@ -67,9 +67,9 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="articleNumber">The articlenumber to find</param>
 		/// <returns>The found article</returns>
-		public Article Get(string articleNumber)
+		public Article Get(string articleNumber, string accessToken, string clientSecret)
 		{
-			return base.BaseGet(articleNumber);
+			return base.BaseGet(articleNumber,accessToken,clientSecret);
 		}
 
 		/// <summary>
@@ -87,9 +87,9 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="article">The article to create</param>
 		/// <returns>The created article</returns>
-		public Article Create(Article article)
+		public Article Create(Article article, string accessToken, string clientSecret)
 		{
-			return base.BaseCreate(article);
+			return base.BaseCreate(article,accessToken,clientSecret);
 		}
 
 		/// <summary>
@@ -97,18 +97,18 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="articleNumber">The articlenumber of the article to delete</param>
 		/// <returns>If the article was deleted or not</returns>
-		public void Delete(string articleNumber)
+		public void Delete(string articleNumber, string accessToken, string clientSecret)
 		{
-			base.BaseDelete(articleNumber);
+			base.BaseDelete(articleNumber, accessToken, clientSecret);
 		}
 
 		/// <summary>
 		/// Gets a list of articles
 		/// </summary>
 		/// <returns>A list of articles</returns>
-		public Articles Find()
+		public Articles Find(string accessToken, string clientSecret)
 		{
-			return base.BaseFind();
+			return base.BaseFind(accessToken, clientSecret);
 		}
 	}
 }
