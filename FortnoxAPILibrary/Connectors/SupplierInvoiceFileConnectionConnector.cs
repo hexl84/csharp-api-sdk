@@ -24,7 +24,7 @@ namespace FortnoxAPILibrary.Connectors
 		/// <returns>The found supplier invoice file connection</returns>
 		public SupplierInvoiceFileConnection Get(string fileId, string accessToken, string clientSecret)
 		{
-			return base.BaseGet(fileId, accessToken, clientSecret);
+			return base.BaseGet(accessToken, clientSecret, fileId);
 		}
 
 		/// <summary>
@@ -32,9 +32,9 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="supplierInvoiceFileConnection">The supplier invoice file connection to create</param>
 		/// <returns>The created supplier invoice file connection</returns>
-		public SupplierInvoiceFileConnection Create(SupplierInvoiceFileConnection supplierInvoiceFileConnection)
+		public SupplierInvoiceFileConnection Create(SupplierInvoiceFileConnection supplierInvoiceFileConnection, string accessToken, string clientSecret)
 		{
-			return base.BaseCreate(supplierInvoiceFileConnection);
+			return base.BaseCreate(supplierInvoiceFileConnection, accessToken, clientSecret);
 		}
 
 		/// <summary>

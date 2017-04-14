@@ -24,7 +24,7 @@ namespace FortnoxAPILibrary.Connectors
 		/// <returns>The resulting way of deliverycode</returns>
 		public WayOfDelivery Get(string wayOfDeliveryCode, string accessToken, string clientSecret)
 		{
-			return base.BaseGet(wayOfDeliveryCode, accessToken, clientSecret);
+			return base.BaseGet(accessToken, clientSecret, wayOfDeliveryCode);
 		}
 
 		/// <summary>
@@ -32,9 +32,9 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="wayOfDelivery">The way of delivery to update</param>
 		/// <returns>The updated way of delivery</returns>
-		public WayOfDelivery Update(WayOfDelivery wayOfDelivery)
+		public WayOfDelivery Update(WayOfDelivery wayOfDelivery, string accessToken, string clientSecret)
 		{
-			return base.BaseUpdate(wayOfDelivery, wayOfDelivery.Code);
+			return base.BaseUpdate(wayOfDelivery, accessToken, clientSecret, wayOfDelivery.Code);
 		}
 
 		/// <summary>
@@ -42,9 +42,9 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="wayOfDelivery">The way of delivery to create</param>
 		/// <returns>The created way of delivery</returns>
-		public WayOfDelivery Create(WayOfDelivery wayOfDelivery)
+		public WayOfDelivery Create(WayOfDelivery wayOfDelivery, string accessToken, string clientSecret)
 		{
-			return base.BaseCreate(wayOfDelivery);
+			return base.BaseCreate(wayOfDelivery, accessToken, clientSecret);
 		}
 
 		/// <summary>

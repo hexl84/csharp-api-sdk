@@ -118,7 +118,7 @@ namespace FortnoxAPILibrary.Connectors
 		/// <returns>The found customer</returns>
 		public Customer Get(string customerNumber, string accessToken, string clientSecret)
 		{
-			return base.BaseGet(customerNumber,accessToken,clientSecret);
+			return base.BaseGet(accessToken, clientSecret, customerNumber);
 		}
 
 		/// <summary>
@@ -126,9 +126,9 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="customer">The customer to update</param>
 		/// <returns>The updated customer</returns>
-		public Customer Update(Customer customer)
+		public Customer Update(Customer customer, string accessToken, string clientSecret)
 		{
-			return base.BaseUpdate(customer, customer.CustomerNumber);
+			return base.BaseUpdate(customer,accessToken, clientSecret, customer.CustomerNumber);
 		}
 
 		/// <summary>
@@ -136,9 +136,9 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="customer">The customer to create</param>
 		/// <returns>The created customer</returns>
-		public Customer Create(Customer customer)
+		public Customer Create(Customer customer, string accessToken, string clientSecret)
 		{
-			return base.BaseCreate(customer);
+			return base.BaseCreate(customer, accessToken, clientSecret);
 		}
 
 		/// <summary>

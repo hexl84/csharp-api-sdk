@@ -23,18 +23,18 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="supplierInvoicePayment">The supplier invoice payment to be created</param>
 		/// <returns>The created supplier invoice payment</returns>
-		public SupplierInvoicePayment Create(SupplierInvoicePayment supplierInvoicePayment)
+		public SupplierInvoicePayment Create(SupplierInvoicePayment supplierInvoicePayment, string accessToken, string clientSecret)
 		{
-			return base.BaseCreate(supplierInvoicePayment);
+			return base.BaseCreate(supplierInvoicePayment, accessToken, clientSecret);
 		}
 
 		/// <summary>
 		/// Gets a list of supplier payments
 		/// </summary>
 		/// <returns>A list of payments</returns>
-		public SupplierInvoicePayments Find()
+		public SupplierInvoicePayments Find(string accessToken, string clientSecret)
 		{
-			return base.BaseFind();
+			return base.BaseFind(accessToken, clientSecret);
 		}
 
         /// <summary>
@@ -42,18 +42,18 @@ namespace FortnoxAPILibrary.Connectors
         /// </summary>
         /// <param name="supplierInvoicePaymentNumber">The supplier invoice payment number to find</param>
         /// <returns>The found supplier invoice payment</returns>
-        public SupplierInvoicePayment Get(string supplierInvoicePaymentNumber)
+        public SupplierInvoicePayment Get(string supplierInvoicePaymentNumber, string accessToken, string clientSecret)
         {
-            return base.BaseGet(supplierInvoicePaymentNumber);
+            return base.BaseGet(accessToken, clientSecret, supplierInvoicePaymentNumber);
         }
 
 		/// <summary>
 		/// Bookkeep a supplier invoice payment
 		/// </summary>
 		/// <param name="supplierInvoicePaymentNumber">The number of the supplier invoice payment to bookkeep.</param>
-		public void Bookkeep(string supplierInvoicePaymentNumber)
+		public void Bookkeep(string supplierInvoicePaymentNumber, string accessToken, string clientSecret)
 		{
-			base.DoAction(supplierInvoicePaymentNumber, "bookkeep");
+			base.DoAction(supplierInvoicePaymentNumber, "bookkeep", accessToken, clientSecret);
 		}
 	}
 }

@@ -35,7 +35,7 @@ namespace FortnoxAPILibrary.Connectors
 		/// <returns>The found voucher file connection</returns>
 		public VoucherFileConnection Get(string fileId, string accessToken, string clientSecret)
 		{
-			return base.BaseGet(fileId, accessToken, clientSecret);
+			return base.BaseGet(accessToken, clientSecret, fileId);
 		}
 
 		/// <summary>
@@ -43,9 +43,9 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="voucherFileConnection">The voucher file connection to create</param>
 		/// <returns>The created voucher file connection</returns>
-		public VoucherFileConnection Create(VoucherFileConnection voucherFileConnection)
+		public VoucherFileConnection Create(VoucherFileConnection voucherFileConnection, string accessToken, string clientSecret)
 		{
-			return base.BaseCreate(voucherFileConnection);
+			return base.BaseCreate(voucherFileConnection, accessToken, clientSecret);
 		}
 
 		/// <summary>

@@ -17,7 +17,7 @@ namespace FortnoxAPILibrary.Connectors
         /// <remarks/>
         public SupplierInvoiceExternalURLConnection Get(string id, string accessToken, string clientSecret)
         {
-            return base.BaseGet(id, accessToken, clientSecret);
+            return base.BaseGet(accessToken, clientSecret, id);
         }
 
         /// <remarks/>
@@ -27,9 +27,9 @@ namespace FortnoxAPILibrary.Connectors
         }
 
         /// <remarks/>
-        public SupplierInvoiceExternalURLConnection Update(SupplierInvoiceExternalURLConnection supplierInvoiceExternalUrlConnection)
+        public SupplierInvoiceExternalURLConnection Update(SupplierInvoiceExternalURLConnection supplierInvoiceExternalUrlConnection, string accessToken, string clientSecret)
         {
-            return base.BaseUpdate(supplierInvoiceExternalUrlConnection, supplierInvoiceExternalUrlConnection.Id);
+            return base.BaseUpdate(supplierInvoiceExternalUrlConnection, accessToken, clientSecret, supplierInvoiceExternalUrlConnection.Id);
         }
 
         /// <remarks/>

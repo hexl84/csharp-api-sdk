@@ -15,9 +15,9 @@ namespace FortnoxAPILibrary.Connectors
 		/// Gets a list of print templates
 		/// </summary>
 		/// <returns>A list of print templates</returns>
-		public PrintTemplates Find()
+		public PrintTemplates Find(string accessToken, string clientSecret)
 		{
-			return base.BaseFind();
+			return base.BaseFind(accessToken,clientSecret);
 		}
 	}
 }

@@ -178,9 +178,9 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="documentNumber">The document number of the invoice to find</param>
 		/// <returns>The found invoice</returns>
-		public Invoice Get(string documentNumber)
+		public Invoice Get(string documentNumber, string accessToken, string clientSecret)
 		{
-			return base.BaseGet(documentNumber);
+			return base.BaseGet(accessToken, clientSecret, documentNumber);
 		}
 
 		/// <summary>
@@ -188,9 +188,9 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="invoice">The invoice to update</param>
 		/// <returns>The updated invoice</returns>
-		public Invoice Update(Invoice invoice)
+		public Invoice Update(Invoice invoice, string accessToken, string clientSecret)
 		{
-			return base.BaseUpdate(invoice, invoice.DocumentNumber);
+			return base.BaseUpdate(invoice, accessToken, clientSecret, invoice.DocumentNumber);
 		}
 
 		/// <summary>
@@ -198,18 +198,18 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="invoice">The invoice to create</param>
 		/// <returns>The created invoice</returns>
-		public Invoice Create(Invoice invoice)
+		public Invoice Create(Invoice invoice, string accessToken, string clientSecret)
 		{
-			return base.BaseCreate(invoice);
+			return base.BaseCreate(invoice, accessToken, clientSecret);
 		}
 
 		/// <summary>
 		/// Gets at list of Invoices
 		/// </summary>
 		/// <returns>A list of invoices</returns>
-		public Invoices Find()
+		public Invoices Find(string accessToken, string clientSecret)
 		{
-			return base.BaseFind();
+			return base.BaseFind(accessToken, clientSecret);
 		}
 
 		/// <summary>
@@ -217,9 +217,9 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="documentNumber">The document number of the invoice to bookkeep.</param>
 		/// <returns>The bookkept invoice</returns>
-		public Invoice Bookkeep(string documentNumber)
+		public Invoice Bookkeep(string documentNumber, string accessToken, string clientSecret)
 		{
-			return base.DoAction(documentNumber, "bookkeep");
+			return base.DoAction(documentNumber, "bookkeep", accessToken, clientSecret);
 		}
 
 		/// <summary>
@@ -227,9 +227,9 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="documentNumber">The document number of the invoice to cancel</param>
 		/// <returns>The cancelled invoice</returns>
-		public Invoice Cancel(string documentNumber)
+		public Invoice Cancel(string documentNumber, string accessToken, string clientSecret)
 		{
-			return base.DoAction(documentNumber, "cancel");
+			return base.DoAction(documentNumber, "cancel", accessToken, clientSecret);
 		}
 
 		/// <summary>
@@ -237,18 +237,18 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="documentNumber">The document number of the invoice to credit</param>
 		/// <returns>The credited invoice</returns>
-		public Invoice Credit(string documentNumber)
+		public Invoice Credit(string documentNumber, string accessToken, string clientSecret)
 		{
-			return base.DoAction(documentNumber, "credit");
+			return base.DoAction(documentNumber, "credit", accessToken, clientSecret);
 		}
 
 		/// <summary>
 		/// Emails an invoice
 		/// </summary>
 		/// <param name="documentNumber">The document number of the invoice to be emailed</param>
-		public void Email(string documentNumber)
+		public void Email(string documentNumber, string accessToken, string clientSecret)
 		{
-			base.DoAction(documentNumber, "email");
+			base.DoAction(documentNumber, "email", accessToken, clientSecret);
 		}
 
 		/// <summary>
@@ -256,23 +256,23 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="documentNumber">The document number of the invoice to print</param>
 		/// <param name="localPath">The path where to save the generated pdf. If omitted the invoice will be set to printed (i.e Sent = true) and no pdf is returned. </param>
-		public void Print(string documentNumber, string localPath = "")
+		public void Print(string documentNumber, string accessToken, string clientSecret, string localPath = "")
 		{
 			if (string.IsNullOrEmpty(localPath))
 			{
-				base.DoAction(documentNumber, "externalprint");
+				base.DoAction(documentNumber, "externalprint", accessToken, clientSecret);
 			}
 			else
 			{
 				base.LocalPath = localPath;
-				base.DoAction(documentNumber, "print");
+				base.DoAction(documentNumber, "print", accessToken, clientSecret);
 			}
 		}
         
         /// <param name="documentNumber">The document number of the invoice to print</param>
-        public void EPrint(string documentNumber)
+        public void EPrint(string documentNumber, string accessToken, string clientSecret)
         {
-            base.DoAction(documentNumber, "eprint");
+            base.DoAction(documentNumber, "eprint", accessToken, clientSecret);
         }
 
 		/// <summary>
@@ -280,10 +280,10 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="documentNumber"></param>
 		/// <param name="localPath">The path where to save the reminder </param>
-		public void PrintReminder(string documentNumber, string localPath)
+		public void PrintReminder(string documentNumber, string localPath, string accessToken, string clientSecret)
 		{
 			base.LocalPath = localPath;
-			base.DoAction(documentNumber, "printreminder");
+			base.DoAction(documentNumber, "printreminder", accessToken, clientSecret);
 		}
 
         /// <summary>
@@ -291,19 +291,19 @@ namespace FortnoxAPILibrary.Connectors
         /// </summary>
         /// <param name="documentNumber"></param>
         /// <param name="localPath">The path where to save the preview</param>
-        public void Preview(string documentNumber, string localPath)
+        public void Preview(string documentNumber, string localPath, string accessToken, string clientSecret)
         {
             base.LocalPath = localPath;
-            base.DoAction(documentNumber, "preview");
+            base.DoAction(documentNumber, "preview", accessToken, clientSecret);
         }
 
         /// <summary>
         /// Marks the document as externally printed
         /// </summary>
         /// <param name="documentNumber"></param>
-        public void ExternalPrint(string documentNumber)
+        public void ExternalPrint(string documentNumber, string accessToken, string clientSecret)
         {
-            base.DoAction(documentNumber, "externalprint");
+            base.DoAction(documentNumber, "externalprint", accessToken, clientSecret);
         }
 	}
 }

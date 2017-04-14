@@ -20,7 +20,7 @@ namespace FortnoxAPILibrary.Connectors {
         /// <param name="labelId"></param>
         /// <returns></returns>
         public Label Get(string labelId, string accessToken, string clientSecret) {
-            return base.BaseGet(labelId,accessToken,clientSecret);
+            return base.BaseGet(accessToken, clientSecret, labelId);
         }
 
         /// <summary>
@@ -28,8 +28,8 @@ namespace FortnoxAPILibrary.Connectors {
         /// </summary>
         /// <param name="label"></param>
         /// <returns></returns>
-        public Label Update(Label label) {
-            return base.BaseUpdate(label, label.Id);
+        public Label Update(Label label, string accessToken, string clientSecret) {
+            return base.BaseUpdate(label, accessToken,clientSecret, label.Id);
         }
 
         /// <summary>
@@ -37,8 +37,8 @@ namespace FortnoxAPILibrary.Connectors {
         /// </summary>
         /// <param name="label">The label entity to create</param>
         /// <returns>The created label.</returns>
-        public Label Create(Label label) {
-            return base.BaseCreate(label);
+        public Label Create(Label label, string accessToken, string clientSecret) {
+            return base.BaseCreate(label, accessToken, clientSecret);
         }
 
         /// <summary>

@@ -127,7 +127,7 @@ namespace FortnoxAPILibrary
             base.ResponseType = RequestResponseType.XML;
             base.RequestUriString = requestUriString;
 
-            return base.DoRequest<E>(entity);
+            return base.DoRequest<E>(accessToken, clientSecret, entity);
         }
 
         internal void BaseDelete(string index, string accessToken, string clientSecret)
@@ -215,6 +215,9 @@ namespace FortnoxAPILibrary
             return result;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         protected void AddCustomParameters()
         {
             var properties = this.GetType().GetProperties();

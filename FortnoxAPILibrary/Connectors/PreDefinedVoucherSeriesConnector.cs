@@ -45,9 +45,9 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="name">The name of the voucher series to find</param>
 		/// <returns>The found voucher series</returns>
-		public PreDefinedVoucherSeries Get(PreDefinedVoucherSeriesName name)
+		public PreDefinedVoucherSeries Get(PreDefinedVoucherSeriesName name, string accessToken, string clientSecret)
 		{
-			return base.BaseGet(name.ToString());
+			return base.BaseGet(accessToken, clientSecret, name.ToString());
 		}
 
 		/// <summary>
@@ -55,9 +55,9 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="preDefinedVoucherSeries">The voucher series to update</param>
 		/// <returns></returns>
-		public PreDefinedVoucherSeries Update(PreDefinedVoucherSeries preDefinedVoucherSeries)
+		public PreDefinedVoucherSeries Update(PreDefinedVoucherSeries preDefinedVoucherSeries, string accessToken, string clientSecret)
 		{
-			return base.BaseUpdate(preDefinedVoucherSeries, preDefinedVoucherSeries.Name.ToString());
+			return base.BaseUpdate(preDefinedVoucherSeries, accessToken, clientSecret, preDefinedVoucherSeries.Name.ToString());
 		}
 
 
@@ -65,9 +65,9 @@ namespace FortnoxAPILibrary.Connectors
 		/// Gets a list of pre defined voucher series
 		/// </summary>
 		/// <returns></returns>
-		public PreDefinedVoucherSeriesCollection Find()
+		public PreDefinedVoucherSeriesCollection Find(string accessToken, string clientSecret)
 		{
-			return base.BaseFind();
+			return base.BaseFind(accessToken,clientSecret);
 		}
 	}
 }

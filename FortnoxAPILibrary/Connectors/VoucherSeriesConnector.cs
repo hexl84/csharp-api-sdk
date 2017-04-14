@@ -19,9 +19,9 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="code">The voucher series code to find</param>
 		/// <returns>The found voucher series</returns>
-		public VoucherSeries Get(string code)
+		public VoucherSeries Get(string code, string accessToken, string clientSecret)
 		{
-			return base.BaseGet(code);
+			return base.BaseGet(accessToken, clientSecret, code);
 		}
 
 		/// <summary>
@@ -29,10 +29,10 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="voucherSeries">The voucher series to update</param>
 		/// <returns>The updated voucher series</returns>
-		public VoucherSeries Update(VoucherSeries voucherSeries)
+		public VoucherSeries Update(VoucherSeries voucherSeries, string accessToken, string clientSecret)
 		{
 
-			return base.BaseUpdate(voucherSeries, voucherSeries.Code);
+			return base.BaseUpdate(voucherSeries, accessToken, clientSecret, voucherSeries.Code);
 		}
 
 		/// <summary>
@@ -40,18 +40,18 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="voucherseries">The voucher series to create</param>
 		/// <returns>The created voucher series</returns>
-		public VoucherSeries Create(VoucherSeries voucherseries)
+		public VoucherSeries Create(VoucherSeries voucherseries, string accessToken, string clientSecret)
 		{
-			return base.BaseCreate(voucherseries);
+			return base.BaseCreate(voucherseries, accessToken, clientSecret);
 		}
 
 		/// <summary>
 		/// Gets a list of voucher series
 		/// </summary>
 		/// <returns>A list of voucher series</returns>
-		public VoucherSeriesCollection Find()
+		public VoucherSeriesCollection Find(string accessToken, string clientSecret)
 		{
-			return base.BaseFind();
+			return base.BaseFind(accessToken, clientSecret);
 		}
 	}
 }

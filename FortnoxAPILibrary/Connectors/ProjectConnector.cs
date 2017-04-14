@@ -45,7 +45,7 @@ namespace FortnoxAPILibrary.Connectors
 		/// <returns>The found project</returns>
 		public Project Get(string projectNumber, string accessToken, string clientSecret)
 		{
-			return base.BaseGet(projectNumber,accessToken, clientSecret);
+			return base.BaseGet(accessToken, clientSecret, projectNumber);
 		}
 
 		/// <summary>
@@ -53,9 +53,9 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="project">The project to update</param>
 		/// <returns>The updated project</returns>
-		public Project Update(Project project)
+		public Project Update(Project project, string accessToken, string clientSecret)
 		{
-			return base.BaseUpdate(project, project.ProjectNumber.ToString());
+			return base.BaseUpdate(project, accessToken, clientSecret, project.ProjectNumber.ToString());
 		}
 
 		/// <summary>
@@ -63,9 +63,9 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="project"> The project to Create</param>
 		/// <returns>The created project</returns>
-		public Project Create(Project project)
+		public Project Create(Project project, string accessToken, string clientSecret)
 		{
-			return base.BaseCreate(project);
+			return base.BaseCreate(project, accessToken, clientSecret);
 		}
 
 		/// <summary>

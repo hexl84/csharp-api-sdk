@@ -61,7 +61,7 @@ namespace FortnoxAPILibrary.Connectors
 		/// <returns>The resulting supplier</returns>
 		public Supplier Get(string supplierNumber, string accessToken, string clientSecret)
 		{
-			return BaseGet(supplierNumber, accessToken, clientSecret);
+			return BaseGet(accessToken, clientSecret, supplierNumber);
 		}
 
 		/// <summary>
@@ -69,9 +69,9 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="supplier">The supplier entity to update</param>
 		/// <returns>The updated supplier</returns>
-		public Supplier Update(Supplier supplier)
+		public Supplier Update(Supplier supplier, string accessToken, string clientSecret)
 		{
-			return base.BaseUpdate(supplier, supplier.SupplierNumber);
+			return base.BaseUpdate(supplier, accessToken, clientSecret, supplier.SupplierNumber);
 		}
 
 		/// <summary>
@@ -79,9 +79,9 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="supplier">The supplier entity to create</param>
 		/// <returns>The created supplier</returns>
-		public Supplier Create(Supplier supplier)
+		public Supplier Create(Supplier supplier, string accessToken, string clientSecret)
 		{
-			return base.BaseCreate(supplier);
+			return base.BaseCreate(supplier, accessToken, clientSecret);
 		}
 
 		/// <summary>

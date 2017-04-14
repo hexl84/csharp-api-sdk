@@ -18,7 +18,7 @@ namespace FortnoxAPILibrary.Connectors
 		/// <returns>The found mode of payment</returns>
 		public ModeOfPayment Get(string code, string accessToken, string clientSecret)
 		{
-			return base.BaseGet(code,accessToken,clientSecret);
+			return base.BaseGet(accessToken, clientSecret, code);
 		}
 
 		/// <summary>
@@ -26,9 +26,9 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="modeofpayment">The mode of payment to update</param>
 		/// <returns>The updated mode of payment</returns>
-		public ModeOfPayment Update(ModeOfPayment modeofpayment)
+		public ModeOfPayment Update(ModeOfPayment modeofpayment, string accessToken, string clientSecret)
 		{
-			return base.BaseUpdate(modeofpayment, modeofpayment.Code);
+			return base.BaseUpdate(modeofpayment, accessToken, clientSecret, modeofpayment.Code);
 		}
 
 		/// <summary>
@@ -36,9 +36,9 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="modeOfPayment">The mode of payment to create</param>
 		/// <returns>The created mode of payment</returns>
-		public ModeOfPayment Create(ModeOfPayment modeOfPayment)
+		public ModeOfPayment Create(ModeOfPayment modeOfPayment, string accessToken, string clientSecret)
 		{
-			return base.BaseCreate(modeOfPayment);
+			return base.BaseCreate(modeOfPayment, accessToken, clientSecret);
 		}
 
 		/// <summary>

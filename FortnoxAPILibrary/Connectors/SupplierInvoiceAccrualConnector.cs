@@ -44,9 +44,9 @@ namespace FortnoxAPILibrary.Connectors
 		///</summary>
 		///<param name="invoiceAccrual">The supplier invoice accrual to update</param>
 		///<returns>The updated supplier invoice accrual</returns>
-		public SupplierInvoiceAccrual Update(SupplierInvoiceAccrual invoiceAccrual)
+		public SupplierInvoiceAccrual Update(SupplierInvoiceAccrual invoiceAccrual, string accessToken, string clientSecret)
 		{
-			return base.BaseUpdate(invoiceAccrual, invoiceAccrual.SupplierInvoiceNumber);
+			return base.BaseUpdate(invoiceAccrual, accessToken, clientSecret, invoiceAccrual.SupplierInvoiceNumber);
 		}
 
 		/// <summary>

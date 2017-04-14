@@ -22,9 +22,9 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="id">The id of the financial year to find</param>
 		/// <returns></returns>
-		public FinancialYear Get(int id)
+		public FinancialYear Get(int id, string accessToken, string clientSecret)
 		{
-			return base.BaseGet(id.ToString());
+			return base.BaseGet(accessToken, clientSecret, id.ToString());
 		}
 
 		/// <summary>
@@ -32,18 +32,18 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="financialYear">The financial year to create</param>
 		/// <returns>The created financial year</returns>
-		public FinancialYear Create(FinancialYear financialYear)
+		public FinancialYear Create(FinancialYear financialYear, string accessToken, string clientSecret)
 		{
-			return base.BaseCreate(financialYear);
+			return base.BaseCreate(financialYear, accessToken, clientSecret);
 		}
 
 		/// <summary>
 		/// Gets a list of financial years
 		/// </summary>
 		/// <returns>A list of financial years</returns>
-		public FinancialYears Find()
+		public FinancialYears Find(string accessToken, string clientSecret)
 		{
-			return base.BaseFind();
+			return base.BaseFind(accessToken, clientSecret);
 		}
 	}
 }

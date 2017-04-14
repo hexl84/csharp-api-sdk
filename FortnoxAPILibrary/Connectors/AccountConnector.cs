@@ -58,7 +58,7 @@ namespace FortnoxAPILibrary.Connectors
 		/// <returns>The found account</returns>
 		public Account Get(string accountNumber,string accessToken, string clientSecret)
 		{
-			return base.BaseGet(accountNumber,accessToken,clientSecret);
+			return base.BaseGet(accessToken, clientSecret, accountNumber);
 		}
 
 		/// <summary>
@@ -66,9 +66,9 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="account">Account to update</param>
 		/// <returns>The updated account</returns>
-		public Account Update(Account account)
+		public Account Update(Account account, string accessToken, string clientSecret)
 		{
-			return base.BaseUpdate(account, account.Number.ToString());
+			return base.BaseUpdate(account, accessToken, clientSecret, account.Number.ToString());
 		}
 
 		/// <summary>

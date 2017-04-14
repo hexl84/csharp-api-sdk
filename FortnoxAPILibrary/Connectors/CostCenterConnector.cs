@@ -17,7 +17,7 @@ namespace FortnoxAPILibrary.Connectors
 		/// <returns>The resulting cost center</returns>
 		public CostCenter Get(string costCenterCode, string accessToken, string clientSecret)
 		{
-			return base.BaseGet(costCenterCode,accessToken,clientSecret);
+			return base.BaseGet(accessToken, clientSecret, costCenterCode);
 		}
 
 
@@ -26,9 +26,9 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="costCenter">The cost center entity to update</param>
 		/// <returns>The updated CostCenter</returns>
-		public CostCenter Update(CostCenter costCenter)
+		public CostCenter Update(CostCenter costCenter, string accessToken, string clientSecret)
 		{
-			return base.BaseUpdate(costCenter, costCenter.Code);
+			return base.BaseUpdate(costCenter, costCenter.Code, accessToken, clientSecret);
 		}
 
 		/// <summary>
@@ -36,9 +36,9 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="costCenter"></param>
 		/// <returns></returns>
-		public CostCenter Create(CostCenter costCenter)
+		public CostCenter Create(CostCenter costCenter, string accessToken, string clientSecret)
 		{
-			return base.BaseCreate(costCenter);
+			return base.BaseCreate(costCenter, accessToken, clientSecret);
 		}
 
 		/// <summary>

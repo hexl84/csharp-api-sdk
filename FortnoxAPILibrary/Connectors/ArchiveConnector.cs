@@ -58,7 +58,7 @@ namespace FortnoxAPILibrary.Connectors
 		/// Gets at list of Files and Folders
 		/// </summary>
 		/// <returns>A list of Files and Folders</returns>
-		public Folder Find(RootFolder rootFolder = RootFolder.Root)
+		public Folder Find(string accessToken, string clientSecret, RootFolder rootFolder = RootFolder.Root)
 		{
             this.Parameters = new Dictionary<string, string>();
 
@@ -91,7 +91,7 @@ namespace FortnoxAPILibrary.Connectors
 				base.Resource = "archive/" + GetRealValueFromAttribute(RootFolder.Inbox_Vouchers);	
 			}
 			
-			return base.BaseFind(this.Parameters);
+			return base.BaseFind(accessToken, clientSecret, this.Parameters);
 		}
 
 		private static string GetRealValueFromAttribute(RootFolder f)
@@ -126,11 +126,11 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="fileIdOrFilePath">The id or path of the file to download</param>
 		/// <param name="localPath">The local path to save the file to </param>
-		public new void DownloadFile(string fileIdOrFilePath, string localPath)
+		public new void DownloadFile(string fileIdOrFilePath, string localPath, string accessToken, string clientSecret)
         {
             base.Resource = "archive";
 
-			base.DownloadFile(fileIdOrFilePath, localPath);
+			base.DownloadFile(fileIdOrFilePath, localPath, accessToken, clientSecret);
 		}
 
 		/// <summary>
@@ -139,11 +139,11 @@ namespace FortnoxAPILibrary.Connectors
 		/// <param name="fileId">The id of the file to be moved</param>
 		/// <param name="destination">The id or path to the folder to move the file to.</param>
 		/// <returns>Information about the file. </returns>
-		public new File MoveFile(string fileId, string destination)
+		public new File MoveFile(string fileId, string destination, string accessToken, string clientSecret)
         {
             base.Resource = "archive";
 
-			return base.MoveFile(fileId, destination);
+			return base.MoveFile(fileId, destination, accessToken, clientSecret);
 		}
 
         /// <summary>
@@ -152,7 +152,7 @@ namespace FortnoxAPILibrary.Connectors
         /// <param name="folder">The folder entity to create</param>
         /// <param name="destination">he id or path to the parent folder to create the folder in.</param>
         /// <returns>The created folder.</returns>
-        public Folder CreateFolder(Folder folder, string destination = "")
+        public Folder CreateFolder(Folder folder, string accessToken, string clientSecret, string destination = "")
         {
             base.Resource = "archive";
 
@@ -171,7 +171,7 @@ namespace FortnoxAPILibrary.Connectors
                 }
             }
 
-            return base.BaseCreate(folder, parameters);
+            return base.BaseCreate(folder, accessToken, clientSecret, parameters);
         }
 	}
 }

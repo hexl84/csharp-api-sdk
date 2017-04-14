@@ -124,9 +124,9 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="documentNumber">The document number of the offer to find</param>
 		/// <returns>An offer</returns>
-		public Offer Get(string documentNumber)
+		public Offer Get(string documentNumber, string accessToken, string clientSecret)
 		{
-			return base.BaseGet(documentNumber.ToString());
+			return base.BaseGet(accessToken, clientSecret, documentNumber.ToString());
 		}
 
 		/// <summary>
@@ -134,9 +134,9 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="offer">The offer to update</param>
 		/// <returns>The updated offer</returns>
-		public Offer Update(Offer offer)
+		public Offer Update(Offer offer, string accessToken, string clientSecret)
 		{
-			return base.BaseUpdate(offer, offer.DocumentNumber.ToString());
+			return base.BaseUpdate(offer, accessToken, clientSecret, offer.DocumentNumber.ToString());
 		}
 
 		/// <summary>
@@ -144,18 +144,18 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="offer">The offer to create</param>
 		/// <returns>The created offer</returns>
-		public Offer Create(Offer offer)
+		public Offer Create(Offer offer, string accessToken, string clientSecret)
 		{
-			return base.BaseCreate(offer);
+			return base.BaseCreate(offer, accessToken, clientSecret);
 		}
 
 		/// <summary>
 		/// Gets a list of offers
 		/// </summary>
 		/// <returns>A list of offers</returns>
-		public Offers Find()
+		public Offers Find(string accessToken, string clientSecret)
 		{
-			return base.BaseFind();
+			return base.BaseFind(accessToken, clientSecret);
 		}
 
 		/// <summary>
@@ -163,18 +163,18 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="documentNumber">The document number of the offer to cancel</param>
 		/// <returns>The cancelled offer</returns>
-		public Offer Cancel(string documentNumber)
+		public Offer Cancel(string documentNumber, string accessToken, string clientSecret)
 		{
-			return base.DoAction(documentNumber, "cancel");
+			return base.DoAction(documentNumber, "cancel", accessToken, clientSecret);
 		}
 
 		/// <summary>
 		/// Emails an offer
 		/// </summary>
 		/// <param name="documentNumber">The document number of the offer to be emailed</param>
-		public void Email(string documentNumber)
+		public void Email(string documentNumber, string accessToken, string clientSecret)
 		{
-			base.DoAction(documentNumber, "email");
+			base.DoAction(documentNumber, "email", accessToken, clientSecret);
 		}
 
 		/// <summary>
@@ -182,16 +182,16 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="documentNumber">The document number of the offer to print</param>
 		/// <param name="localPath">Where to save the printed offer. If omitted the offer will be set to printed (i.e Sent = true) and no pdf is returned. </param>
-		public void Print(string documentNumber, string localPath = "")
+		public void Print(string documentNumber, string accessToken, string clientSecret, string localPath = "")
 		{
 			if (string.IsNullOrEmpty(localPath))
 			{
-				base.DoAction(documentNumber, "externalprint");
+				base.DoAction(documentNumber, "externalprint", accessToken, clientSecret);
 			}
 			else
 			{
 				base.LocalPath = localPath;
-				base.DoAction(documentNumber, "print");
+				base.DoAction(documentNumber, "print", accessToken, clientSecret);
 			}
 		}
 
@@ -199,9 +199,9 @@ namespace FortnoxAPILibrary.Connectors
         /// Marks the document as externally printed
         /// </summary>
         /// <param name="documentNumber"></param>
-        public void ExternalPrint(string documentNumber)
+        public void ExternalPrint(string documentNumber, string accessToken, string clientSecret)
         {
-            base.DoAction(documentNumber, "externalprint");
+            base.DoAction(documentNumber, "externalprint", accessToken, clientSecret);
         }
 
 		/// <summary>
@@ -209,9 +209,9 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="documentNumber">The document number of the offer to create order from</param>
 		/// <returns></returns>
-		public Offer CreateOrder(string documentNumber)
+		public Offer CreateOrder(string documentNumber, string accessToken, string clientSecret)
 		{
-			return base.DoAction(documentNumber, "createorder");
+			return base.DoAction(documentNumber, "createorder", accessToken, clientSecret);
 		}
 	}
 }

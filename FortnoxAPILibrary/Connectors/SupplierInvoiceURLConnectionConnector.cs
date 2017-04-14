@@ -21,7 +21,7 @@ namespace FortnoxAPILibrary.Connectors
         /// <returns>The found connection</returns>
         public SupplierInvoiceURLConnection Get(string id, string accessToken, string clientSecret)
         {
-            return base.BaseGet(id,accessToken, clientSecret);
+            return base.BaseGet(accessToken, clientSecret, id);
         }
 
         /// <summary>

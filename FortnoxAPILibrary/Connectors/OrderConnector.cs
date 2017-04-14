@@ -142,9 +142,9 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="documentNumber">The document number of the order to find</param>
 		/// <returns>An order</returns>
-		public Order Get(string documentNumber)
+		public Order Get(string documentNumber, string accessToken, string clientSecret)
 		{
-			return base.BaseGet(documentNumber.ToString());
+			return base.BaseGet(accessToken, clientSecret, documentNumber.ToString());
 		}
 
 		/// <summary>
@@ -152,9 +152,9 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="order">The order to update</param>
 		/// <returns>The updated order</returns>
-		public Order Update(Order order)
+		public Order Update(Order order, string accessToken, string clientSecret)
 		{
-			return base.BaseUpdate(order, order.DocumentNumber.ToString());
+			return base.BaseUpdate(order, accessToken, clientSecret, order.DocumentNumber.ToString());
 		}
 
 		/// <summary>
@@ -162,18 +162,18 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="order">The order to create</param>
 		/// <returns>The created order</returns>
-		public Order Create(Order order)
+		public Order Create(Order order, string accessToken, string clientSecret)
 		{
-			return base.BaseCreate(order);
+			return base.BaseCreate(order, accessToken, clientSecret);
 		}
 
 		/// <summary>
 		/// Gets a list of orders
 		/// </summary>
 		/// <returns>A list of orders</returns>
-		public Orders Find()
+		public Orders Find(string accessToken, string clientSecret)
 		{
-			return base.BaseFind();
+			return base.BaseFind(accessToken, clientSecret);
 		}
 
 		/// <summary>
@@ -181,18 +181,18 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="documentNumber">The document number of the order to canceld</param>
 		/// <returns>The cancelled order</returns>
-		public Order Cancel(string documentNumber)
+		public Order Cancel(string documentNumber, string accessToken, string clientSecret)
 		{
-			return base.DoAction(documentNumber, "cancel");
+			return base.DoAction(documentNumber, "cancel", accessToken, clientSecret);
 		}
 
 		/// <summary>
 		/// Emails an order
 		/// </summary>
 		/// <param name="documentNumber">The document number of the order to be emailed</param>
-		public void Email(string documentNumber)
+		public void Email(string documentNumber, string accessToken, string clientSecret)
 		{
-			base.DoAction(documentNumber, "email");
+			base.DoAction(documentNumber, "email", accessToken, clientSecret);
 		}
 
 
@@ -201,16 +201,16 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="documentNumber">The document number of the order to print</param>
 		/// <param name="localPath">Where to save the printed order. If omitted the order will be set to printed (i.e Sent = true) and no pdf is returned. </param>
-		public void Print(string documentNumber, string localPath = "")
+		public void Print(string documentNumber, string accessToken, string clientSecret, string localPath = "")
 		{
 			if (string.IsNullOrEmpty(localPath))
 			{
-				base.DoAction(documentNumber, "externalprint");
+				base.DoAction(documentNumber, "externalprint", accessToken, clientSecret);
 			}
 			else
 			{
 				base.LocalPath = localPath;
-				base.DoAction(documentNumber, "print");
+				base.DoAction(documentNumber, "print", accessToken, clientSecret);
 			}
 		}
 
@@ -219,18 +219,18 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="documentNumber">The document number of the order to create invoice from</param>
 		/// <returns></returns>
-		public Order CreateInvoice(string documentNumber)
+		public Order CreateInvoice(string documentNumber, string accessToken, string clientSecret)
 		{
-			return base.DoAction(documentNumber, "createinvoice");
+			return base.DoAction(documentNumber, "createinvoice", accessToken, clientSecret);
 		}
 
         /// <summary>
         /// Marks the document as externally printed
         /// </summary>
         /// <param name="documentNumber"></param>
-        public void ExternalPrint(string documentNumber)
+        public void ExternalPrint(string documentNumber, string accessToken, string clientSecret)
         {
-            base.DoAction(documentNumber, "externalprint");
+            base.DoAction(documentNumber, "externalprint", accessToken, clientSecret);
         }
 	}
 }

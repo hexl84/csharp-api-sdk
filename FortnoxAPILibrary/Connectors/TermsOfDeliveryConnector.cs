@@ -24,7 +24,7 @@ namespace FortnoxAPILibrary.Connectors
 		/// <returns>The resulting terms of delivery</returns>
 		public TermsOfDelivery Get(string termsOfDeliveryCode, string accessToken, string clientSecret)
 		{
-			return base.BaseGet(termsOfDeliveryCode, accessToken, clientSecret);
+			return base.BaseGet(accessToken, clientSecret, termsOfDeliveryCode);
 		}
 
 		/// <summary>
@@ -32,9 +32,9 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="termsOfDelivery">The terms of delivery entity to update</param>
 		/// <returns>The updated terms of delivery</returns>
-		public TermsOfDelivery Update(TermsOfDelivery termsOfDelivery)
+		public TermsOfDelivery Update(TermsOfDelivery termsOfDelivery, string accessToken, string clientSecret)
 		{
-			return base.BaseUpdate(termsOfDelivery, termsOfDelivery.Code);
+			return base.BaseUpdate(termsOfDelivery, accessToken, clientSecret, termsOfDelivery.Code);
 		}
 
 		/// <summary>
@@ -42,9 +42,9 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="termsOfDelivery">The terms of delivery entity to create</param>
 		/// <returns>The created terms of delivery</returns>
-		public TermsOfDelivery Create(TermsOfDelivery termsOfDelivery)
+		public TermsOfDelivery Create(TermsOfDelivery termsOfDelivery, string accessToken, string clientSecret)
 		{
-			return base.BaseCreate(termsOfDelivery);
+			return base.BaseCreate(termsOfDelivery, accessToken, clientSecret);
 		}
 
 

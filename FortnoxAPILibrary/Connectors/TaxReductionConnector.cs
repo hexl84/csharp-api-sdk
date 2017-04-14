@@ -62,7 +62,7 @@ namespace FortnoxAPILibrary.Connectors
 		/// <returns></returns>
 		public TaxReduction Get(string id, string accessToken, string clientSecret)
 		{
-			return base.BaseGet(id, accessToken, clientSecret);
+			return base.BaseGet(accessToken, clientSecret, id);
 		}
 
 		/// <summary>
@@ -70,9 +70,9 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="taxReduction">The tax reduction to update</param>
 		/// <returns>The updated tax reduction</returns>
-		public TaxReduction Update(TaxReduction taxReduction)
+		public TaxReduction Update(TaxReduction taxReduction, string accessToken, string clientSecret)
 		{
-			return base.BaseUpdate(taxReduction, taxReduction.Id.ToString());
+			return base.BaseUpdate(taxReduction, accessToken, clientSecret, taxReduction.Id.ToString());
 		}
 
 		/// <summary>
@@ -80,9 +80,9 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="taxReduction">The tax reduction to create</param>
 		/// <returns>The created tax reduction</returns>
-		public TaxReduction Create(TaxReduction taxReduction)
+		public TaxReduction Create(TaxReduction taxReduction, string accessToken, string clientSecret)
 		{
-			return base.BaseCreate(taxReduction);
+			return base.BaseCreate(taxReduction,accessToken, clientSecret);
 		}
 
 		/// <summary>

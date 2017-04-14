@@ -36,7 +36,7 @@ namespace FortnoxAPILibrary.Connectors
 		/// <returns>The found invoice accrual</returns>
 		public InvoiceAccrual Get(string invoiceNumber, string accessToken, string clientSecret)
 		{
-			return base.BaseGet(invoiceNumber,accessToken,clientSecret);
+			return base.BaseGet(accessToken, clientSecret, invoiceNumber);
 		}
 
 		/// <summary>
@@ -44,9 +44,9 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="invoiceAccrual">The invoice accrual to update</param>
 		/// <returns>The updated invoice accrual</returns>
-		public InvoiceAccrual Update(InvoiceAccrual invoiceAccrual)
+		public InvoiceAccrual Update(InvoiceAccrual invoiceAccrual, string accessToken, string clientSecret)
 		{
-			return base.BaseUpdate(invoiceAccrual, invoiceAccrual.InvoiceNumber);
+			return base.BaseUpdate(invoiceAccrual, accessToken, clientSecret, invoiceAccrual.InvoiceNumber);
 		}
 
 		/// <summary>
@@ -54,9 +54,9 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="invoiceAccrual">The invoice accrual to create</param>
 		/// <returns>The created invoice accrual</returns>
-		public InvoiceAccrual Create(InvoiceAccrual invoiceAccrual)
+		public InvoiceAccrual Create(InvoiceAccrual invoiceAccrual, string accessToken, string clientSecret)
 		{
-			return base.BaseCreate(invoiceAccrual);
+			return base.BaseCreate(invoiceAccrual,accessToken,clientSecret);
 		}
 
 		/// <summary>

@@ -15,9 +15,9 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="name">The name of the predefined account to get</param>
 		/// <returns>a predefined account</returns>
-		public PreDefinedAccount Get(string name)
+		public PreDefinedAccount Get(string name, string accessToken, string clientSecret)
 		{
-			return base.BaseGet(name);
+			return base.BaseGet(accessToken, clientSecret, name);
 		}
 
 		/// <summary>
@@ -25,18 +25,18 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="preDefinedAccount">The predefined account to update</param>
 		/// <returns>The updated predefined account</returns>
-		public PreDefinedAccount Update(PreDefinedAccount preDefinedAccount)
+		public PreDefinedAccount Update(PreDefinedAccount preDefinedAccount, string accessToken, string clientSecret)
 		{
-			return base.BaseUpdate(preDefinedAccount, preDefinedAccount.Name);
+			return base.BaseUpdate(preDefinedAccount, accessToken, clientSecret, preDefinedAccount.Name);
 		}
 
 		/// <summary>
 		/// Gets a list of predefined accounts
 		/// </summary>
 		/// <returns>A list of predefined accounts</returns>
-		public PreDefinedAccounts Find()
+		public PreDefinedAccounts Find(string accessToken, string clientSecret)
 		{
-			return base.BaseFind();
+			return base.BaseFind(accessToken, clientSecret);
 		}
 	}
 }

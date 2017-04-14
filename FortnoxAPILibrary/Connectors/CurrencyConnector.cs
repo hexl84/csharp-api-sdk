@@ -17,7 +17,7 @@ namespace FortnoxAPILibrary.Connectors
 		/// <returns></returns>
 		public Currency Get(string currencyCode, string accessToken, string clientSecret)
 		{
-			return base.BaseGet(currencyCode,accessToken,clientSecret);
+			return base.BaseGet(accessToken, clientSecret, currencyCode);
 		}
 
 		/// <summary>
@@ -25,9 +25,9 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="currency">The currency entity to update</param>
 		/// <returns>The updated currency entity</returns>
-		public Currency Update(Currency currency)
+		public Currency Update(Currency currency, string accessToken, string clientSecret)
 		{
-			return base.BaseUpdate(currency, currency.Code);
+			return base.BaseUpdate(currency, accessToken, clientSecret, currency.Code);
 		}
 
 		/// <summary>
@@ -35,9 +35,9 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="currency">The currency entity to create</param>
 		/// <returns>The created currency entity</returns>
-		public Currency Create(Currency currency)
+		public Currency Create(Currency currency, string accessToken, string clientSecret)
 		{
-			return base.BaseCreate(currency);
+			return base.BaseCreate(currency, accessToken, clientSecret);
 		}
 
 		/// <summary>

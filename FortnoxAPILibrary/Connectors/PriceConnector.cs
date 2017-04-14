@@ -35,11 +35,11 @@ namespace FortnoxAPILibrary.Connectors
 		/// <param name="articleNumber">The article number to find</param>
 		/// <param name="fromQuantity">The from quantity of the price to find. Optional. If omitted, 0 will be used.</param>
 		/// <returns>The found price</returns>
-		public Price Get(string priceList, string articleNumber, string fromQuantity = "0")
+		public Price Get(string priceList, string articleNumber, string accessToken, string clientSecret, string fromQuantity = "0")
 		{
 			base.Resource = "prices";
 
-			return base.BaseGet(priceList, articleNumber, fromQuantity);
+			return base.BaseGet(accessToken, clientSecret, priceList, articleNumber, fromQuantity);
 		}
 
 		/// <summary>
@@ -47,10 +47,10 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="price">The price to update</param>
 		/// <returns>The updated price</returns>
-		public Price Update(Price price)
+		public Price Update(Price price, string accessToken, string clientSecret)
 		{
 			base.Resource = "prices";
-			return base.BaseUpdate(price, price.PriceList, price.ArticleNumber);
+			return base.BaseUpdate(price, accessToken, clientSecret, price.PriceList, price.ArticleNumber);
 		}
 
 		/// <summary>
@@ -58,10 +58,10 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="price">The price to create</param>
 		/// <returns>The created price</returns>
-		public Price Create(Price price)
+		public Price Create(Price price, string accessToken, string clientSecret)
 		{
 			base.Resource = "prices";
-			return base.BaseCreate(price);
+			return base.BaseCreate(price,accessToken,clientSecret);
 		}
 
 		/// <summary>

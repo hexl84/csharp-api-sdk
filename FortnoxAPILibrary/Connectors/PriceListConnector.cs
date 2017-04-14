@@ -15,9 +15,9 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="code">The code of the price list to find</param>
 		/// <returns>The found price list</returns>
-		public PriceList Get(string code)
+		public PriceList Get(string code, string accessToken, string clientSecret)
 		{
-			return base.BaseGet(code);
+			return base.BaseGet(accessToken, clientSecret, code);
 		}
 
 		/// <summary>
@@ -25,9 +25,9 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="priceList">The price list to update</param>
 		/// <returns>The updated price list</returns>
-		public PriceList Update(PriceList priceList)
+		public PriceList Update(PriceList priceList, string accessToken, string clientSecret)
 		{
-			return base.BaseUpdate(priceList, priceList.Code);
+			return base.BaseUpdate(priceList, accessToken, clientSecret, priceList.Code);
 		}
 
 		/// <summary>
@@ -35,18 +35,18 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="priceList">The price list to create</param>
 		/// <returns>The created price list</returns>
-		public PriceList Create(PriceList priceList)
+		public PriceList Create(PriceList priceList, string accessToken, string clientSecret)
 		{
-			return base.BaseCreate(priceList);
+			return base.BaseCreate(priceList,accessToken,clientSecret);
 		}
 
 		/// <summary>
 		/// Gets a list of price lists
 		/// </summary>
 		/// <returns>A list of price lists</returns>
-		public PriceLists Find()
+		public PriceLists Find(string accessToken, string clientSecret)
 		{
-			return base.BaseFind();
+			return base.BaseFind(accessToken,clientSecret);
 		}
 	}
 }

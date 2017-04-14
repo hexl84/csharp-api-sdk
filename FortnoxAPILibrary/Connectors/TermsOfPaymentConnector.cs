@@ -24,7 +24,7 @@ namespace FortnoxAPILibrary.Connectors
 		/// <returns></returns>
 		public TermsOfPayment Get(string termsOfPaymentCode, string accessToken, string clientSecret)
 		{
-			return base.BaseGet(termsOfPaymentCode, accessToken, clientSecret);
+			return base.BaseGet(accessToken, clientSecret, termsOfPaymentCode);
 		}
 
 		/// <summary>
@@ -32,9 +32,9 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="termsOfPayment"></param>
 		/// <returns></returns>
-		public TermsOfPayment Update(TermsOfPayment termsOfPayment)
+		public TermsOfPayment Update(TermsOfPayment termsOfPayment, string accessToken, string clientSecret)
 		{
-			return base.BaseUpdate(termsOfPayment, termsOfPayment.Code);
+			return base.BaseUpdate(termsOfPayment, accessToken, clientSecret, termsOfPayment.Code);
 		}
 
 		/// <summary>
@@ -42,9 +42,9 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="termsOfPayment">The terms of payment entity to create</param>
 		/// <returns>The created terms of payment.</returns>
-		public TermsOfPayment Create(TermsOfPayment termsOfPayment)
+		public TermsOfPayment Create(TermsOfPayment termsOfPayment, string accessToken, string clientSecret)
 		{
-			return base.BaseCreate(termsOfPayment);
+			return base.BaseCreate(termsOfPayment, accessToken, clientSecret);
 		}
 
 		/// <summary>

@@ -17,7 +17,7 @@ namespace FortnoxAPILibrary.Connectors
 		/// <returns>The found unit</returns>
 		public Unit Get(string unitCode, string accessToken, string clientSecret)
 		{
-			return base.BaseGet(unitCode,accessToken, clientSecret);
+			return base.BaseGet(accessToken, clientSecret, unitCode);
 		}
 
 		/// <summary>
@@ -25,9 +25,9 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="unit">Unit to update</param>
 		/// <returns>The updated unit</returns>
-		public Unit Update(Unit unit)
+		public Unit Update(Unit unit, string accessToken, string clientSecret)
 		{
-			return base.BaseUpdate(unit, unit.Code);
+			return base.BaseUpdate(unit, accessToken, clientSecret, unit.Code);
 		}
 
 		/// <summary>
@@ -35,9 +35,9 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="unit">The unit to create</param>
 		/// <returns>The created unit</returns>
-		public Unit Create(Unit unit)
+		public Unit Create(Unit unit, string accessToken, string clientSecret)
 		{
-			return base.BaseCreate(unit);
+			return base.BaseCreate(unit, accessToken, clientSecret);
 		}
 
 		/// <summary>

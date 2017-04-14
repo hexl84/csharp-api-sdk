@@ -18,9 +18,9 @@ namespace FortnoxAPILibrary
         /// Gets the locked period setting
         /// </summary>
         /// <returns>The locked period setting</returns>
-        public LockedPeriod Get()
+        public LockedPeriod Get(string accessToken, string clientSecret)
         {
-            return base.BaseFind();
+            return base.BaseFind(accessToken, clientSecret);
         }
     }
 }

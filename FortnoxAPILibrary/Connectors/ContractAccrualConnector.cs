@@ -21,7 +21,7 @@ namespace FortnoxAPILibrary.Connectors
         /// <returns>The found contract accrual</returns>
         public ContractAccrual Get(string contractNumber, string accessToken, string clientSecret)
         {
-            return base.BaseGet(contractNumber,accessToken,clientSecret);
+            return base.BaseGet(accessToken, clientSecret, contractNumber);
         }
 
         /// <summary>
@@ -29,9 +29,9 @@ namespace FortnoxAPILibrary.Connectors
         /// </summary>
         /// <param name="contractAccrual">The contract accrual to update</param>
         /// <returns>The updated contract accrual</returns>
-        public ContractAccrual Update(ContractAccrual contractAccrual)
+        public ContractAccrual Update(ContractAccrual contractAccrual, string accessToken, string clientSecret)
         {
-            return base.BaseUpdate(contractAccrual, contractAccrual.DocumentNumber);
+            return base.BaseUpdate(contractAccrual, accessToken, clientSecret, contractAccrual.DocumentNumber);
         }
 
         /// <summary>
@@ -39,9 +39,9 @@ namespace FortnoxAPILibrary.Connectors
         /// </summary>
         /// <param name="contractAccrual">The contract accrual to create</param>
         /// <returns>The created contract accrual</returns>
-        public ContractAccrual Create(ContractAccrual contractAccrual)
+        public ContractAccrual Create(ContractAccrual contractAccrual, string accessToken, string clientSecret)
         {
-            return base.BaseCreate(contractAccrual);
+            return base.BaseCreate(contractAccrual, accessToken, clientSecret);
         }
 
         /// <summary>

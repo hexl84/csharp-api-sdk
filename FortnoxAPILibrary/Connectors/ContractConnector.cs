@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Xml.Serialization;
 
@@ -77,9 +78,9 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="documentNumber">The document number of the Contract to find</param>
 		/// <returns>The found Contract</returns>
-        public Contract Get(string documentNumber)
+        public Contract Get(string documentNumber, string accessToken, string clientSecret)
         {
-            return base.BaseGet(documentNumber);
+            return base.BaseGet(documentNumber, accessToken, clientSecret);
         }
 
         /// <summary>
@@ -87,9 +88,9 @@ namespace FortnoxAPILibrary.Connectors
         /// </summary>
         /// <param name="contract">The Contract to update</param>
         /// <returns>The updated Contract</returns>
-        public Contract Update(Contract contract)
+        public Contract Update(Contract contract, string accessToken, string clientSecret)
         {
-            return base.BaseUpdate(contract, contract.DocumentNumber);
+            return base.BaseUpdate(contract, contract.DocumentNumber, accessToken, clientSecret);
         }
 
         /// <summary>
@@ -97,18 +98,18 @@ namespace FortnoxAPILibrary.Connectors
         /// </summary>
         /// <param name="contract">The Contract to create</param>
         /// <returns>The created Contract</returns>
-        public Contract Create(Contract contract)
+        public Contract Create(Contract contract, string accessToken, string clientSecret)
         {
-            return base.BaseCreate(contract);
+            return base.BaseCreate(contract, accessToken, clientSecret);
         }
 
         /// <summary>
         /// Gets at list of Contracts
         /// </summary>
         /// <returns>A list of Contracts</returns>
-        public Contracts Find()
+        public Contracts Find(string accessToken, string clientSecret)
         {
-            return base.BaseFind();
+            return base.BaseFind(accessToken, clientSecret);
         }
 
         /// <summary>
@@ -116,9 +117,9 @@ namespace FortnoxAPILibrary.Connectors
         /// </summary>
         /// <param name="documentNumber">The document number of the contract to finish.</param>
         /// <returns>The finished contract</returns>
-        public Contract Finish(string documentNumber)
+        public Contract Finish(string documentNumber, string accessToken, string clientSecret)
         {
-            return base.DoAction(documentNumber, "finish");
+            return base.DoAction(documentNumber, "finish", accessToken, clientSecret);
         }
 
         /// <summary>
@@ -126,9 +127,9 @@ namespace FortnoxAPILibrary.Connectors
         /// </summary>
         /// <param name="documentNumber">The document number of the contract to create an Invoice from.</param>
         /// <returns>The Contract that the Invoice was created from</returns>
-        public Contract CreateInvoice(string documentNumber)
+        public Contract CreateInvoice(string documentNumber, string accessToken, string clientSecret)
         {
-            return base.DoAction(documentNumber, "createinvoice");
+            return base.DoAction(documentNumber, "createinvoice", accessToken, clientSecret);
         }
 
         /// <summary>
@@ -136,9 +137,9 @@ namespace FortnoxAPILibrary.Connectors
         /// </summary>
         /// <param name="documentNumber">The document number of the Contract to increase the Invoice.</param>
         /// <returns>The Contract that the Invoice was created from</returns>
-        public Contract IncreaseInvoiceCount(string documentNumber)
+        public Contract IncreaseInvoiceCount(string documentNumber, string accessToken, string clientSecret)
         {
-            return base.DoAction(documentNumber, "increaseinvoicecount");
+            return base.DoAction(documentNumber, "increaseinvoicecount", accessToken, clientSecret);
         }
     }
 }

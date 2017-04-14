@@ -69,7 +69,7 @@ namespace FortnoxAPILibrary.Connectors
 		/// <returns>The found article</returns>
 		public Article Get(string articleNumber, string accessToken, string clientSecret)
 		{
-			return base.BaseGet(articleNumber,accessToken,clientSecret);
+			return base.BaseGet(accessToken, clientSecret, articleNumber);
 		}
 
 		/// <summary>
@@ -77,9 +77,9 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="article">The article to update</param>
 		/// <returns>The updated article</returns>
-		public Article Update(Article article)
+		public Article Update(Article article, string accessToken, string clientSecret)
 		{
-			return base.BaseUpdate(article, article.ArticleNumber);
+			return base.BaseUpdate(article, accessToken, clientSecret, article.ArticleNumber);
 		}
 
 		/// <summary>

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 
 namespace FortnoxAPILibrary.Connectors
 {
@@ -136,9 +137,9 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="documentNumber">The document number to find</param>
 		/// <returns></returns>
-		public SupplierInvoice Get(string documentNumber)
+		public SupplierInvoice Get(string documentNumber, string accessToken, string clientSecret)
 		{
-			return base.BaseGet(documentNumber.ToString());
+			return base.BaseGet(accessToken, clientSecret, documentNumber.ToString());
 		}
 
 		/// <summary>
@@ -146,9 +147,9 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="supplierInvoice">the supplier invoice to update</param>
 		/// <returns></returns>
-		public SupplierInvoice Update(SupplierInvoice supplierInvoice)
+		public SupplierInvoice Update(SupplierInvoice supplierInvoice, string accessToken, string clientSecret)
 		{
-			return base.BaseUpdate(supplierInvoice, supplierInvoice.GivenNumber.ToString());
+			return base.BaseUpdate(supplierInvoice, accessToken, clientSecret, supplierInvoice.GivenNumber.ToString());
 		}
 
 		/// <summary>
@@ -156,18 +157,18 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="supplierInvoice">The supplier invoice to create</param>
 		/// <returns>The created supplier invoice</returns>
-		public SupplierInvoice Create(SupplierInvoice supplierInvoice)
+		public SupplierInvoice Create(SupplierInvoice supplierInvoice, string accessToken, string clientSecret)
 		{
-			return base.BaseCreate(supplierInvoice);
+			return base.BaseCreate(supplierInvoice, accessToken, clientSecret);
 		}
 
 		/// <summary>
 		/// Gets at list of supplier invoices
 		/// </summary>
 		/// <returns>A list of supplier invoices</returns>
-		public SupplierInvoices Find()
+		public SupplierInvoices Find(string accessToken, string clientSecret)
 		{
-			return base.BaseFind();
+			return base.BaseFind(accessToken, clientSecret);
 		}
 
 		/// <summary>
@@ -175,9 +176,9 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="documentNumber">The document number of the invoice to bookkeep.</param>
 		/// <returns>The bookkept invoice</returns>
-		public SupplierInvoice Bookkeep(string documentNumber)
+		public SupplierInvoice Bookkeep(string documentNumber, string accessToken, string clientSecret)
 		{
-			return base.DoAction(documentNumber, "bookkeep");
+			return base.DoAction(documentNumber, "bookkeep", accessToken, clientSecret);
 		}
 
 		/// <summary>
@@ -185,9 +186,9 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="documentNumber">The document number of the invoice to be cancelled</param>
 		/// <returns>The cancelled invoice</returns>
-		public SupplierInvoice Cancel(string documentNumber)
+		public SupplierInvoice Cancel(string documentNumber, string accessToken, string clientSecret)
 		{
-			return base.DoAction(documentNumber, "cancel");
+			return base.DoAction(documentNumber, "cancel", accessToken, clientSecret);
 		}
 
 		/// <summary>
@@ -195,9 +196,9 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="documentNumber">The document number of the supplier invoice to credit</param>
 		/// <returns>The credited supplier invoice</returns>
-		public SupplierInvoice Credit(string documentNumber)
+		public SupplierInvoice Credit(string documentNumber, string accessToken, string clientSecret)
 		{
-			return base.DoAction(documentNumber, "credit");
+			return base.DoAction(documentNumber, "credit", accessToken, clientSecret);
 		}
 
 		/// <summary>
@@ -205,9 +206,9 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="documentNumber">The doucment number of the supplier invoice to approve</param>
 		/// <returns></returns>
-		public SupplierInvoice ApprovalPayment(string documentNumber)
+		public SupplierInvoice ApprovalPayment(string documentNumber, string accessToken, string clientSecret)
 		{
-			return base.DoAction(documentNumber, "approvalpayment");
+			return base.DoAction(documentNumber, "approvalpayment", accessToken, clientSecret);
 		}
 
 		/// <summary>
@@ -215,9 +216,9 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="documentNumber"></param>
 		/// <returns></returns>
-		public SupplierInvoice ApprovalBookkeep(string documentNumber)
+		public SupplierInvoice ApprovalBookkeep(string documentNumber, string accessToken, string clientSecret)
 		{
-			return base.DoAction(documentNumber, "approvalbookkeep");
+			return base.DoAction(documentNumber, "approvalbookkeep", accessToken, clientSecret);
 		}
 	}
 }

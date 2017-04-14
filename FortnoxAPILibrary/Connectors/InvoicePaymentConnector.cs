@@ -27,7 +27,7 @@ namespace FortnoxAPILibrary.Connectors
 		/// <returns>The found invoice payment</returns>
 		public InvoicePayment Get(string number, string accessToken, string clientSecret)
 		{
-			return base.BaseGet(number,accessToken,clientSecret);
+			return base.BaseGet(accessToken, clientSecret, number);
 		}
 
 		/// <summary>
@@ -35,9 +35,9 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="invoicePayment">The invoice payment to update</param>
 		/// <returns>The updated invoice payment</returns>
-		public InvoicePayment Update(InvoicePayment invoicePayment)
+		public InvoicePayment Update(InvoicePayment invoicePayment, string accessToken, string clientSecret)
 		{
-			return base.BaseUpdate(invoicePayment, invoicePayment.Number.ToString());
+			return base.BaseUpdate(invoicePayment, accessToken, clientSecret, invoicePayment.Number.ToString());
 		}
 
 		/// <summary>
@@ -45,9 +45,9 @@ namespace FortnoxAPILibrary.Connectors
 		/// </summary>
 		/// <param name="invoicePayment">The invoice payment to be created</param>
 		/// <returns>The created invoice payment</returns>
-		public InvoicePayment Create(InvoicePayment invoicePayment)
+		public InvoicePayment Create(InvoicePayment invoicePayment, string accessToken, string clientSecret)
 		{
-			return base.BaseCreate(invoicePayment);
+			return base.BaseCreate(invoicePayment,accessToken, clientSecret);
 		}
 
 		/// <summary>
